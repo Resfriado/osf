@@ -1,3 +1,7 @@
+### Abrir o DB
+
+`http://localhost/phpmyadmin`
+
 ### Sincronizar o projeto com o github
 
 Isso é para baixar o projeto caso alguém além de você tenha atualizado ele, feito algum
