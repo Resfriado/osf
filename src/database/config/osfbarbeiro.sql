@@ -108,8 +108,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `nome`, `email`, `senha`, `ativo`) VALUES
-('', 'dfsdfsdf', 'andre.oliveira.almeida@escola.pr.gov.br', '5b9403d46c3f51b075d0f962cf743f07', 1),
-('', 'hhc', 'andre.oliveira.almeida@escola.pr.gov.br', '5b9403d46c3f51b075d0f962cf743f07', 1),
+('', 'admin', 'admin@gmail.com', MD5('1234'), 1),
 ('', 'hhc', 'andre.oliveira.almeida@escola.pr.gov.br', '5b9403d46c3f51b075d0f962cf743f07', 1);
 
 --
