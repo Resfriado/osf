@@ -1,0 +1,35 @@
+/* Contêiner principal da página */
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0; /* espaço superior e inferior */
+  background-color: #007bff
+}
+
+/* Formulário */
+.auth-page form {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.auth-page .logo {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.auth-page .form-control {
+  margin-bottom: 10px;
+}
+
+.auth-page .btn {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  width: 100%;
+}

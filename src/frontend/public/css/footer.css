@@ -1,51 +1,12 @@
-html, body {
-  height: 100%;
-}
-.icons {
-  max-width: 24px;
-  margin-right: 5px;
-}
-body {
-  display: flex;
-  flex-direction: column;
+/* Ícones do footer */
+footer img {
+  cursor: pointer;
+  /* indica que é clicável */
+  transition: filter 0.3s ease;
+  /* animação suave no hover */
 }
 
-footer {
-  margin-top: auto;
-}
-.footer {
-  background-color: #1e2327; /* fundo escuro */
-  color: #aebac4; /* texto acinzentado */
-  text-align: center;
-  padding: 30px 0;
-  font-family: Arial, sans-serif;
-}
-
-.footer-links {
-  margin-bottom: 10px;
-}
-
-.footer-links a {
-  color: #aebac4;
-  text-decoration: none;
-  margin: 0 10px;
-  font-size: 15px;
-  transition: color 0.2s;
-}
-
-.footer-links a:hover {
-  color: #ffffff;
-}
-
-.footer hr {
-  border: none;
-  border-top: 1px solid #444;
-  width: 80%;
-  margin: 15px auto;
-}
-
-.footer p {
-  font-size: 14px;
-  color: #aebac4;
-  margin-top: 10px;
+footer img:hover {
+  filter: brightness(0) invert(1);
+  /* efeito hover: inverte as cores */
 }
