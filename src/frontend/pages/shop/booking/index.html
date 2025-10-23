@@ -1,11 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendamento</title>
+    <title>Escolha de Barbeiro</title>
+    <link rel="stylesheet" href="../assets/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+        .barbeiro-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .barbeiro-card:hover {
+            transform: scale(1.05);
+        }
+        .barbeiro-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .btn-selecionar {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        .btn-selecionar:hover {
+            background-color: #218838;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <h1>Escolha seu Barbeiro</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="barbeiro-card">
+                    <img src="../assets/barbeiro1.jpg" alt="Barbeiro 1">
+                    <h3>Barbeiro 1</h3>
+                    <p>Especialista em cortes modernos</p>
+                    <button class="btn-selecionar">Selecionar</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="barbeiro-card">
+                    <img src="../assets/barbeiro2.jpg" alt="Barbeiro 2">
+                    <h3>Barbeiro 2</h3>
+                    <p>Especialista em barba e bigode</p>
+                    <button class="btn-selecionar">Selecionar</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="barbeiro-card">
+                    <img src="../assets/barbeiro3.jpg" alt="Barbeiro 3">
+                    <h3>Barbeiro 3</h3>
+                    <p>Especialista em cortes clássicos</p>
+                    <button class="btn-selecionar">Selecionar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
