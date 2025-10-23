@@ -4,6 +4,8 @@
 
 ### Instalar pacotes do package.json
 
+Em máquina externa utilize `cmd` antes 
+
 `npm i` ou `npm install`
 
 ### Rodar o projeto em modo de desenvolvimento
