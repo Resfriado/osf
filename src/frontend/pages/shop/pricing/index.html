@@ -26,56 +26,63 @@
         <h1 class="text-center mb-3">Serviços Disponíveis</h1>
         <div class="row">
           <div class="card">
-            <h3>Barba</h3>
-            <p>Categoria: Barbearia</p>
+            <h3>Barba (navalha)</h3>
+            <p>Duração: 30 min</p>
+            <p>Preço: R$ 28,00</p>
+            <a href="#" class="btn-reservar">RESERVAR</a>
+          </div>
+          <div class="card">
+            <h3>Barba (máquina)</h3>
+            <p>Duração: 30 min</p>
+            <p>Preço: R$ 15,00</p>
+            <a href="#" class="btn-reservar">RESERVAR</a>
+          </div>
+          <div class="card">
+            <h3>Barba + sombrancelha</h3>
+            <p>Duração: 30 min</p>
+            <p>Preço: R$ 46,00</p>
+            <a href="#" class="btn-reservar">RESERVAR</a>
+          </div>
+          <div class="card">
+            <h3>Cabelo degradê + barba + sombrancelha</h3>
+            <p>Duração: 1h</p>
+            <p>Preço: R$ 76,00</p>
+            <a href="#" class="btn-reservar">RESERVAR</a>
+          </div>
+          <div class="card">
+            <h3>Cabelo social + barba</h3>
+            <p>Duração: 45 min</p>
+            <p>Preço: R$ 56,00</p>
+          <a href="#" class="btn-reservar">RESERVAR</a>
+          </div>
+          <div class="card">
+            <h3>Cabelo degradê</h3>
             <p>Duração: 30 min</p>
             <p>Preço: R$ 30,00</p>
-            <p>Barba feita na máquina/toalha quente e navalha</p>
             <a href="#" class="btn-reservar">RESERVAR</a>
           </div>
           <div class="card">
-            <h3>Barba + pezinho</h3>
-            <p>Categoria: Barbearia</p>
+            <h3>Cabelo social</h3>
             <p>Duração: 30 min</p>
-            <p>Preço: R$ 35,00</p>
-            <p>Barba + acabamento do cabelo</p>
+            <p>Preço: R$ 28,00</p>
             <a href="#" class="btn-reservar">RESERVAR</a>
           </div>
           <div class="card">
-            <h3>Botox capilar</h3>
-            <p>Categoria: Específico</p>
-            <p>Duração: 1h</p>
-            <p>Preço: R$ 120,00</p>
-            <p>
-              É um tratamento que tira o frizz e reduz o volume dos cabelos com
-              naturalidade.
-            </p>
+            <h3>Cabelo degradê + barba</h3>
+            <p>Duração: 45 min</p>
+            <p>Preço: R$ 58,00</p>
             <a href="#" class="btn-reservar">RESERVAR</a>
           </div>
           <div class="card">
-            <h3>Cabelo</h3>
-            <p>Categoria: Barbearia</p>
+            <h3>Cabelo degradê + sombrancelha</h3>
+            <p>Duração: 45 min</p>
+            <p>Preço: R$ 48,00</p>
+            <a href="#" class="btn-reservar">RESERVAR</a>
+          </div>
+          <div class="card">
+            <h3>Sombrancelha</h3>
             <p>Duração: 30 min</p>
-            <p>Preço: R$ 35,00</p>
-            <p>Social, Degrade e corte todo na tesoura</p>
-            <a href="#" class="btn-reservar">RESERVAR</a>
-          </div>
-          <div class="card">
-            <h3>Cabelo + barba + pigmentação</h3>
-            <p>Categoria: Barbearia</p>
-            <p>Duração: 1h30min</p>
-            <p>Preço: R$ 80,00</p>
-            <p>
-              Corte de cabelo + barba (toalha quente e navalha) + pigmentação
-            </p>
-            <a href="#" class="btn-reservar">RESERVAR</a>
-          </div>
-          <div class="card">
-            <h3>Cabelo + Barba</h3>
-            <p>Categoria: Barbearia</p>
-            <p>Duração: 1h</p>
-            <p>Preço: R$ 60,00</p>
-            <p>Corte de cabelo + barba navalha/máquina</p>
+            <p>Preço: R$ 18,00</p>
             <a href="#" class="btn-reservar">RESERVAR</a>
           </div>
         </div>
@@ -85,5 +92,28 @@
     <footer id="footer-placeholder" class=""></footer>
 
     <script src="/public/js/layout.js"></script>
+    <script>
+      document.querySelector('.search-bar input').addEventListener('input', function (e) {
+        const searchTerm = e.target.value.toLowerCase();
+        const cards = document.querySelectorAll('.card');
+
+        cards.forEach(card => {
+          const cardText = card.textContent.toLowerCase();
+          if (cardText.includes(searchTerm)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    </script>
+    <script>
+      document.querySelectorAll('.btn-reservar').forEach(button => {
+        button.addEventListener('click', function (e) {
+          e.preventDefault();
+          window.location.href = '/osfbarbeiro/src/frontend/pages/shop/booking/index.html';
+        });
+      });
+    </script>
   </body>
 </html>
