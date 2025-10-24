@@ -71,3 +71,13 @@ por `auto` para centralizar o elemento
 Precisa ser utilizado com `d-flex` ou `d-grid`
 
 - `gap-*` Espaçamento entre elementos
+
+```
+https://sweetalert2.github.io/#download
+npm install sweetalert2
+```
+
+```
+https://www.calendar-js.com/demos/basic/calendar
+npm install jcalendar.js
+```
