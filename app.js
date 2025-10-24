@@ -4,6 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const db = require('./src/database/config/db');
 const login = require('./src/backend/login.js');
+const pricing = require('./src/backend/pricing.js');
 
 dotenv.config();
 const app = express();
@@ -37,7 +38,8 @@ app.get(auth, (req, res) => {
 });
 
 app.use('/', login);
+app.use('/', pricing);
 
 app.listen(PORT, () => {
-  console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
+  console.log(`\n🚀 Servidor rodando em \x1b[34mhttp://localhost:${PORT}\x1b[0m`);
 });
