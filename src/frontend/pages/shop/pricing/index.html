@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Serviços</title>
-    <link rel="stylesheet" href="../assets/bootstrap.min.css" />
-    <link rel="stylesheet" href="/public/css/pricing.css" />
+    <script src="/public/js/head.js" defer></script>
   </head>
   <body class="d-flex flex-column min-vh-100">
     <header id="header-placeholder"></header>
@@ -25,89 +24,138 @@
       <form class="container" action="/pricing" method="POST">
         <h1 class="text-center mb-3">Serviços Disponíveis</h1>
         <div class="row">
-      
-          <button type="submit" name="service" value="Barba (navalha)" class="card">
+          <button
+            type="submit"
+            name="service"
+            value="Barba (navalha)"
+            class="card"
+          >
             <h3>Barba (navalha)</h3>
             <p>Duração: 30 min</p>
             <p>Preço: R$ 28,00</p>
           </button>
-      
-          <button type="submit" name="service" value="Barba (máquina)" class="card">
+
+          <button
+            type="submit"
+            name="service"
+            value="Barba (máquina)"
+            class="card"
+          >
             <h3>Barba (máquina)</h3>
             <p>Duração: 30 min</p>
             <p>Preço: R$ 15,00</p>
           </button>
-      
-          <button type="submit" name="service" value="Barba + sombrancelha" class="card">
+
+          <button
+            type="submit"
+            name="service"
+            value="Barba + sombrancelha"
+            class="card"
+          >
             <h3>Barba + sombrancelha</h3>
             <p>Duração: 30 min</p>
             <p>Preço: R$ 46,00</p>
           </button>
-      
-          <button type="submit" name="service" value="Cabelo degradê + barba + sombrancelha" class="card">
+
+          <button
+            type="submit"
+            name="service"
+            value="Cabelo degradê + barba + sombrancelha"
+            class="card"
+          >
             <h3>Cabelo degradê + barba + sombrancelha</h3>
             <p>Duração: 1h</p>
             <p>Preço: R$ 76,00</p>
           </button>
-      
-          <button type="submit" name="service" value="Cabelo social + barba" class="card">
+
+          <button
+            type="submit"
+            name="service"
+            value="Cabelo social + barba"
+            class="card"
+          >
             <h3>Cabelo social + barba</h3>
             <p>Duração: 45 min</p>
             <p>Preço: R$ 56,00</p>
           </button>
-      
-          <button type="submit" name="service" value="Cabelo degradê" class="card">
+
+          <button
+            type="submit"
+            name="service"
+            value="Cabelo degradê"
+            class="card"
+          >
             <h3>Cabelo degradê</h3>
             <p>Duração: 30 min</p>
             <p>Preço: R$ 30,00</p>
           </button>
-      
-          <button type="submit" name="service" value="Cabelo social" class="card">
+
+          <button
+            type="submit"
+            name="service"
+            value="Cabelo social"
+            class="card"
+          >
             <h3>Cabelo social</h3>
             <p>Duração: 30 min</p>
             <p>Preço: R$ 28,00</p>
           </button>
-      
-          <button type="submit" name="service" value="Cabelo degradê + barba" class="card">
+
+          <button
+            type="submit"
+            name="service"
+            value="Cabelo degradê + barba"
+            class="card"
+          >
             <h3>Cabelo degradê + barba</h3>
             <p>Duração: 45 min</p>
             <p>Preço: R$ 58,00</p>
           </button>
-      
-          <button type="submit" name="service" value="Cabelo degradê + sombrancelha" class="card">
+
+          <button
+            type="submit"
+            name="service"
+            value="Cabelo degradê + sombrancelha"
+            class="card"
+          >
             <h3>Cabelo degradê + sombrancelha</h3>
             <p>Duração: 45 min</p>
             <p>Preço: R$ 48,00</p>
           </button>
-      
-          <button type="submit" name="service" value="Sombrancelha" class="card">
+
+          <button
+            type="submit"
+            name="service"
+            value="Sombrancelha"
+            class="card"
+          >
             <h3>Sombrancelha</h3>
             <p>Duração: 30 min</p>
             <p>Preço: R$ 18,00</p>
           </button>
-      
         </div>
       </form>
-      
     </div>
 
     <footer id="footer-placeholder" class=""></footer>
 
     <script src="/public/js/layout.js"></script>
     <script>
-      document.querySelector('.search-bar input').addEventListener('input', function (e) {
-        const searchTerm = e.target.value.toLowerCase();
-        const cards = document.querySelectorAll('.card');
+      document
+        .querySelector(".search-bar input")
+        .addEventListener("input", function (e) {
+          const searchTerm = e.target.value.toLowerCase();
+          const cards = document.querySelectorAll(".card");
 
-        cards.forEach(card => {
-          const cardText = card.textContent.toLowerCase();
-          if (cardText.includes(searchTerm)) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
-          }
+          cards.forEach((card) => {
+            const cardText = card.textContent.toLowerCase();
+            if (cardText.includes(searchTerm)) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
         });
-      });
     </script>
   </body>
 </html>

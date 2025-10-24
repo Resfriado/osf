@@ -5,8 +5,8 @@ const db = require('../database/config/db'); // ajusta o caminho conforme sua pa
 const router = express.Router();
 
 // Caminho para o HTML da home (pode vir por parâmetro também)
-const homePath = 'src/frontend/pages/shop/pricing/index.html';
-const home = '/home';
+const pricingPath = 'src/frontend/pages/shop/pricing/index.html';
+const pricing = '/pricing';
 
 // Rota POST para processar o login
 router.post('/login', (req, res) => {
@@ -35,13 +35,13 @@ router.post('/login', (req, res) => {
     }
 
     // ✅ Login bem-sucedido → redireciona para /home
-    return res.redirect('/home');
+    return res.redirect('/pricing');
   });
 });
 
 // ✅ Nova rota GET para /home (exibe a página home)
-router.get('/home', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../', homePath));
+router.get(pricing, (req, res) => {
+  res.sendFile(path.join(__dirname, '../../', pricingPath));
 });
 
 module.exports = router;

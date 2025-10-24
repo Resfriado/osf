@@ -1,37 +1,32 @@
 const express = require('express');
-const dotenv = require('dotenv');
-const path = require('path');
 const fs = require('fs');
+const path = require('path');
 const db = require('./src/database/config/db');
 const login = require('./src/backend/login.js');
 const pricing = require('./src/backend/pricing.js');
 
-dotenv.config();
 const app = express();
-const PORT = process.env.PORT;
-const testPath = 'src/frontend/pages/test/PLACEHOLDER.html';
-const homePath = 'src/frontend/pages/auth/index.html';
-const auth = '/login';
 
-// Importa LiveReload apenas se estiver em desenvolvimento
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+require('./src/backend/static.js')(app);
+
 if (process.env.NODE_ENV !== 'production') {
   const setupLiveReload = require('./src/backend/devReload.js');
   setupLiveReload(app);
 }
-// Para processar formulários
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-// Serve arquivos estáticos da pasta public
-app.use('/public', express.static(path.join(__dirname, 'src/frontend/public')));
+const auth = '/login';
+const testPath = 'src/frontend/pages/test/PLACEHOLDER.html';
+const homePath = 'src/frontend/pages/auth/index.html';
 
-app.get('/', (req, res) => { // Redireciona a raiz "/" para a página de login
+app.get('/', (req, res) => {
   res.redirect(auth);
 });
 
 app.get(auth, (req, res) => {
-  const filePath = path.join(__dirname, homePath);
-  fs.readFile(filePath, 'utf8', (err, html) => {
+  fs.readFile(homePath, 'utf8', (err, html) => {
     if (err) return res.status(500).send('Erro ao carregar a página');
     res.send(html);
   });
@@ -40,6 +35,4 @@ app.get(auth, (req, res) => {
 app.use('/', login);
 app.use('/', pricing);
 
-app.listen(PORT, () => {
-  console.log(`\n✅ - Servidor conectado: \x1b[34mhttp://localhost:${PORT}\x1b[0m`);
-});
+module.exports = app;

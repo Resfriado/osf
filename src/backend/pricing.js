@@ -10,7 +10,7 @@ const booking = '/booking';
 
 router.post(route, (req, res) => {
   const { service } = req.body;
-  console.log("✂️ Serviço selecionado:", service);
+  console.log('💼 - Serviço selecionado: \x1b[90m', service , '\x1b[0m');
   res.redirect(booking);
 });
 
