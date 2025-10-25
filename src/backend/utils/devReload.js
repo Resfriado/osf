@@ -7,18 +7,18 @@ function setupDevReload(app) {
     // Cria servidor LiveReload
     const liveReloadServer = livereload.createServer({
       exts: ['html', 'css', 'js'],
-      delay: 100,
+      delay: 50,
     });
 
     // Observa a pasta frontend
-    liveReloadServer.watch(path.join(__dirname, "../frontend"));
+    liveReloadServer.watch(path.join(__dirname, "../../frontend"));
 
     // Middleware para injetar script do livereload
     app.use(connectLivereload());
 
     // Loga quando o navegador se conecta
     liveReloadServer.server.on("connection", () => {
-//      console.log('⌛️ - Página recarregada');
+      console.log('⌛️ - Página recarregada');
     });
       console.log('\n✅ - LiveReload conectado');
   } catch (err) {

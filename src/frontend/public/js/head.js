@@ -4,9 +4,9 @@
 
   // 🔍 Mapeamento manual entre rotas e pastas
   const routeMap = {
-    "/login": "auth",
-    "/pricing": "pricing",
     "/home": "home",
+    "/auth": "auth",
+    "/pricing": "pricing",
     "/booking": "booking",
     "/test": "test",
   };
@@ -43,6 +43,10 @@
   
   // 🧩 CSS específico da página
   injectLink(`/public/css/${pageFolder}.css`);
+  injectLink(`/public/partials/css/header.css`);
+  injectLink(`/public/partials/css/footer.css`);
+
+  
 
   // 🧩 Scripts globais
   injectScript("/public/assets/sweetalert2/sweetalert2.min.js");

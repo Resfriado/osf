@@ -10,6 +10,6 @@ function loadPartial(id, url) {
 
 // Carregar header e footer
 document.addEventListener("DOMContentLoaded", () => {
-  loadPartial("header-placeholder", "/public/partials/header.html");
-  loadPartial("footer-placeholder", "/public/partials/footer.html");
+  loadPartial("header-placeholder", "/public/partials/html/header.html");
+  loadPartial("footer-placeholder", "/public/partials/html/footer.html");
 });
