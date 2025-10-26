@@ -1,477 +1,516 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agendamento de Horários - OSF Barbeiro</title>
+    <script>
+      window.paceOptions = {
+        restartOnRequestAfter: false,
+        ajax: false,
+        elements: false,
+        minTime: 400,
+      };
+    </script>
+    <link rel="stylesheet" href="/public/css/loading.css" />
+    <link
+      rel="stylesheet"
+      href="/public/assets/pace-js/pace-theme-loading-bar.css"
+    />
+    <script src="/public/assets/pace-js/pace.min.js"></script>
+    <script>
+      Pace.on("start", () => {
+        document.body.style.overflow = "hidden";
+        const o = document.getElementById("preloader-overlay");
+        if (o) o.style.display = "flex";
+      });
+      Pace.on("done", () => {
+        const o = document.getElementById("preloader-overlay");
+        if (o) {
+          o.style.opacity = "0";
+          setTimeout(() => (o.style.display = "none"), 400);
+        }
+        document.body.style.overflow = "auto";
+      });
+    </script>
+    <script src="/public/js/setup.js" defer></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agendamento de Horários - OSF Barbeiro</title>
-  <script src="/public/js/setup.js" defer></script>
-</head>
+  <body>
+    <div id="preloader-overlay"></div>
 
-<body>
-  <header id="header-placeholder"></header>
-  <div class="container mt-4">
-    <h1 class="text-center mb-4">📅 Agendamento de Horários</h1>
+    <header id="header-placeholder"></header>
+    <div class="container mt-4">
+      <h1 class="text-center mb-4">📅 Agendamento de Horários</h1>
 
-    <!-- Sábado, 25 de outubro de 2025 -->
-    <div class="day-section">
-      <h3 class="day-title">Sábado, <span class="date-text">25 de outubro de 2025</span></h3>
-      <div class="horarios-container">
-        <input type="checkbox" id="toggle-sabado" class="toggle-checkbox">
+      <!-- Sábado, 25 de outubro de 2025 -->
+      <div class="day-section">
+        <h3 class="day-title">
+          Sábado, <span class="date-text">25 de outubro de 2025</span>
+        </h3>
+        <div class="horarios-container">
+          <input type="checkbox" id="toggle-sabado" class="toggle-checkbox" />
 
-        <div class="todos-horarios">
-          <div class="horarios-row">
-            <div class="horario-item">
-              <span class="time-text">09:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">09:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">10:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">10:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">11:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">11:30</span>
-            </div>
-          </div>
-          <div class="horarios-row">
-            <div class="horario-item">
-              <span class="time-text">13:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">13:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">14:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">14:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">15:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">15:30</span>
-            </div>
-          </div>
-
-          <div class="horarios-extras">
+          <div class="todos-horarios">
             <div class="horarios-row">
               <div class="horario-item">
-                <span class="time-text">16:00</span>
+                <span class="time-text">09:00</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">16:30</span>
+                <span class="time-text">09:30</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">17:00</span>
+                <span class="time-text">10:00</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">17:30</span>
+                <span class="time-text">10:30</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">18:00</span>
+                <span class="time-text">11:00</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">18:30</span>
+                <span class="time-text">11:30</span>
               </div>
             </div>
-          </div>
-        </div>
-
-        <label for="toggle-sabado" class="ver-mais-label">VER MAIS</label>
-      </div>
-    </div>
-
-    <div class="day-section">
-      <h3 class="day-title">Segunda-feira, <span class="date-text">27 de outubro de 2025</span></h3>
-      <div class="horarios-container">
-        <input type="checkbox" id="toggle-segunda" class="toggle-checkbox">
-
-        <div class="todos-horarios">
-          <div class="horarios-row">
-            <div class="horario-item">
-              <span class="time-text">09:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">09:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">10:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">10:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">11:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">11:30</span>
-            </div>
-          </div>
-          <div class="horarios-row">
-            <div class="horario-item">
-              <span class="time-text">13:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">13:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">14:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">14:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">15:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">15:30</span>
-            </div>
-          </div>
-
-          <div class="horarios-extras">
             <div class="horarios-row">
               <div class="horario-item">
-                <span class="time-text">16:00</span>
+                <span class="time-text">13:00</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">16:30</span>
+                <span class="time-text">13:30</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">17:00</span>
+                <span class="time-text">14:00</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">17:30</span>
+                <span class="time-text">14:30</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">18:00</span>
+                <span class="time-text">15:00</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">18:30</span>
+                <span class="time-text">15:30</span>
+              </div>
+            </div>
+
+            <div class="horarios-extras">
+              <div class="horarios-row">
+                <div class="horario-item">
+                  <span class="time-text">16:00</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">16:30</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">17:00</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">17:30</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">18:00</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">18:30</span>
+                </div>
               </div>
             </div>
           </div>
+
+          <label for="toggle-sabado" class="ver-mais-label">VER MAIS</label>
         </div>
-
-        <label for="toggle-segunda" class="ver-mais-label">VER MAIS</label>
       </div>
-    </div>
 
+      <div class="day-section">
+        <h3 class="day-title">
+          Segunda-feira, <span class="date-text">27 de outubro de 2025</span>
+        </h3>
+        <div class="horarios-container">
+          <input type="checkbox" id="toggle-segunda" class="toggle-checkbox" />
 
-    <div class="day-section">
-      <h3 class="day-title">Terça-feira, <span class="date-text">28 de outubro de 2025</span></h3>
-      <div class="horarios-container">
-        <input type="checkbox" id="toggle-terca" class="toggle-checkbox">
-
-        <div class="todos-horarios">
-          <div class="horarios-row">
-            <div class="horario-item">
-              <span class="time-text">09:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">09:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">10:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">10:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">11:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">11:30</span>
-            </div>
-          </div>
-          <div class="horarios-row">
-            <div class="horario-item">
-              <span class="time-text">13:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">13:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">14:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">14:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">15:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">15:30</span>
-            </div>
-          </div>
-
-          <div class="horarios-extras">
+          <div class="todos-horarios">
             <div class="horarios-row">
               <div class="horario-item">
-                <span class="time-text">16:00</span>
+                <span class="time-text">09:00</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">16:30</span>
+                <span class="time-text">09:30</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">17:00</span>
+                <span class="time-text">10:00</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">17:30</span>
+                <span class="time-text">10:30</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">18:00</span>
+                <span class="time-text">11:00</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">18:30</span>
+                <span class="time-text">11:30</span>
               </div>
             </div>
-          </div>
-        </div>
-
-        <label for="toggle-terca" class="ver-mais-label">VER MAIS</label>
-      </div>
-    </div>
-
-    <!-- Quarta-feira, 29 de outubro de 2025 -->
-    <div class="day-section">
-      <h3 class="day-title">Quarta-feira, <span class="date-text">29 de outubro de 2025</span></h3>
-      <div class="horarios-container">
-        <input type="checkbox" id="toggle-quarta" class="toggle-checkbox">
-
-        <div class="todos-horarios">
-          <div class="horarios-row">
-            <div class="horario-item">
-              <span class="time-text">09:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">09:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">10:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">10:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">11:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">11:30</span>
-            </div>
-          </div>
-          <div class="horarios-row">
-            <div class="horario-item">
-              <span class="time-text">13:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">13:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">14:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">14:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">15:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">15:30</span>
-            </div>
-          </div>
-
-          <div class="horarios-extras">
             <div class="horarios-row">
               <div class="horario-item">
-                <span class="time-text">16:00</span>
+                <span class="time-text">13:00</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">16:30</span>
+                <span class="time-text">13:30</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">17:00</span>
+                <span class="time-text">14:00</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">17:30</span>
+                <span class="time-text">14:30</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">18:00</span>
+                <span class="time-text">15:00</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">18:30</span>
+                <span class="time-text">15:30</span>
+              </div>
+            </div>
+
+            <div class="horarios-extras">
+              <div class="horarios-row">
+                <div class="horario-item">
+                  <span class="time-text">16:00</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">16:30</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">17:00</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">17:30</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">18:00</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">18:30</span>
+                </div>
               </div>
             </div>
           </div>
+
+          <label for="toggle-segunda" class="ver-mais-label">VER MAIS</label>
         </div>
-
-        <label for="toggle-quarta" class="ver-mais-label">VER MAIS</label>
       </div>
-    </div>
 
-    <!-- Quinta-feira, 30 de outubro de 2025 -->
-    <div class="day-section">
-      <h3 class="day-title">Quinta-feira, <span class="date-text">30 de outubro de 2025</span></h3>
-      <div class="horarios-container">
-        <input type="checkbox" id="toggle-quinta" class="toggle-checkbox">
+      <div class="day-section">
+        <h3 class="day-title">
+          Terça-feira, <span class="date-text">28 de outubro de 2025</span>
+        </h3>
+        <div class="horarios-container">
+          <input type="checkbox" id="toggle-terca" class="toggle-checkbox" />
 
-        <div class="todos-horarios">
-          <div class="horarios-row">
-            <div class="horario-item">
-              <span class="time-text">09:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">09:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">10:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">10:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">11:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">11:30</span>
-            </div>
-          </div>
-          <div class="horarios-row">
-            <div class="horario-item">
-              <span class="time-text">13:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">13:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">14:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">14:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">15:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">15:30</span>
-            </div>
-          </div>
-
-          <div class="horarios-extras">
+          <div class="todos-horarios">
             <div class="horarios-row">
               <div class="horario-item">
-                <span class="time-text">16:00</span>
+                <span class="time-text">09:00</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">16:30</span>
+                <span class="time-text">09:30</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">17:00</span>
+                <span class="time-text">10:00</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">17:30</span>
+                <span class="time-text">10:30</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">18:00</span>
+                <span class="time-text">11:00</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">18:30</span>
+                <span class="time-text">11:30</span>
               </div>
             </div>
-          </div>
-        </div>
-
-        <label for="toggle-quinta" class="ver-mais-label">VER MAIS</label>
-      </div>
-    </div>
-
-    <!-- Sexta-feira, 31 de outubro de 2025 -->
-    <div class="day-section">
-      <h3 class="day-title">Sexta-feira, <span class="date-text">31 de outubro de 2025</span></h3>
-      <div class="horarios-container">
-        <input type="checkbox" id="toggle-sexta" class="toggle-checkbox">
-
-        <div class="todos-horarios">
-          <div class="horarios-row">
-            <div class="horario-item">
-              <span class="time-text">09:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">09:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">10:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">10:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">11:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">11:30</span>
-            </div>
-          </div>
-          <div class="horarios-row">
-            <div class="horario-item">
-              <span class="time-text">13:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">13:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">14:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">14:30</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">15:00</span>
-            </div>
-            <div class="horario-item">
-              <span class="time-text">15:30</span>
-            </div>
-          </div>
-
-          <div class="horarios-extras">
             <div class="horarios-row">
               <div class="horario-item">
-                <span class="time-text">16:00</span>
+                <span class="time-text">13:00</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">16:30</span>
+                <span class="time-text">13:30</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">17:00</span>
+                <span class="time-text">14:00</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">17:30</span>
+                <span class="time-text">14:30</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">18:00</span>
+                <span class="time-text">15:00</span>
               </div>
               <div class="horario-item">
-                <span class="time-text">18:30</span>
+                <span class="time-text">15:30</span>
+              </div>
+            </div>
+
+            <div class="horarios-extras">
+              <div class="horarios-row">
+                <div class="horario-item">
+                  <span class="time-text">16:00</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">16:30</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">17:00</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">17:30</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">18:00</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">18:30</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <label for="toggle-sexta" class="ver-mais-label">VER MAIS</label>
+          <label for="toggle-terca" class="ver-mais-label">VER MAIS</label>
+        </div>
+      </div>
+
+      <!-- Quarta-feira, 29 de outubro de 2025 -->
+      <div class="day-section">
+        <h3 class="day-title">
+          Quarta-feira, <span class="date-text">29 de outubro de 2025</span>
+        </h3>
+        <div class="horarios-container">
+          <input type="checkbox" id="toggle-quarta" class="toggle-checkbox" />
+
+          <div class="todos-horarios">
+            <div class="horarios-row">
+              <div class="horario-item">
+                <span class="time-text">09:00</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">09:30</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">10:00</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">10:30</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">11:00</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">11:30</span>
+              </div>
+            </div>
+            <div class="horarios-row">
+              <div class="horario-item">
+                <span class="time-text">13:00</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">13:30</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">14:00</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">14:30</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">15:00</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">15:30</span>
+              </div>
+            </div>
+
+            <div class="horarios-extras">
+              <div class="horarios-row">
+                <div class="horario-item">
+                  <span class="time-text">16:00</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">16:30</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">17:00</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">17:30</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">18:00</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">18:30</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <label for="toggle-quarta" class="ver-mais-label">VER MAIS</label>
+        </div>
+      </div>
+
+      <!-- Quinta-feira, 30 de outubro de 2025 -->
+      <div class="day-section">
+        <h3 class="day-title">
+          Quinta-feira, <span class="date-text">30 de outubro de 2025</span>
+        </h3>
+        <div class="horarios-container">
+          <input type="checkbox" id="toggle-quinta" class="toggle-checkbox" />
+
+          <div class="todos-horarios">
+            <div class="horarios-row">
+              <div class="horario-item">
+                <span class="time-text">09:00</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">09:30</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">10:00</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">10:30</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">11:00</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">11:30</span>
+              </div>
+            </div>
+            <div class="horarios-row">
+              <div class="horario-item">
+                <span class="time-text">13:00</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">13:30</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">14:00</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">14:30</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">15:00</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">15:30</span>
+              </div>
+            </div>
+
+            <div class="horarios-extras">
+              <div class="horarios-row">
+                <div class="horario-item">
+                  <span class="time-text">16:00</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">16:30</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">17:00</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">17:30</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">18:00</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">18:30</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <label for="toggle-quinta" class="ver-mais-label">VER MAIS</label>
+        </div>
+      </div>
+
+      <!-- Sexta-feira, 31 de outubro de 2025 -->
+      <div class="day-section">
+        <h3 class="day-title">
+          Sexta-feira, <span class="date-text">31 de outubro de 2025</span>
+        </h3>
+        <div class="horarios-container">
+          <input type="checkbox" id="toggle-sexta" class="toggle-checkbox" />
+
+          <div class="todos-horarios">
+            <div class="horarios-row">
+              <div class="horario-item">
+                <span class="time-text">09:00</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">09:30</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">10:00</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">10:30</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">11:00</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">11:30</span>
+              </div>
+            </div>
+            <div class="horarios-row">
+              <div class="horario-item">
+                <span class="time-text">13:00</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">13:30</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">14:00</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">14:30</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">15:00</span>
+              </div>
+              <div class="horario-item">
+                <span class="time-text">15:30</span>
+              </div>
+            </div>
+
+            <div class="horarios-extras">
+              <div class="horarios-row">
+                <div class="horario-item">
+                  <span class="time-text">16:00</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">16:30</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">17:00</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">17:30</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">18:00</span>
+                </div>
+                <div class="horario-item">
+                  <span class="time-text">18:30</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <label for="toggle-sexta" class="ver-mais-label">VER MAIS</label>
+        </div>
       </div>
     </div>
+    <footer id="footer-placeholder" class=""></footer>
 
-  </div>
-  <footer id="footer-placeholder" class=""></footer>
-
-  <script src="/public/js/layout.js"></script>
-</body>
-
+    <script src="/public/js/layout.js"></script>
+  </body>
 </html>

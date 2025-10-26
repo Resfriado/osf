@@ -37,6 +37,9 @@
     document.head.appendChild(script);
   }
 
+
+    
+
   // 🧩 CSS globais
   injectLink("/public/assets/bootstrap/bootstrap.min.css");
   injectLink("/public/assets/sweetalert2/sweetalert2.min.css");

@@ -21,7 +21,6 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const route = '/home';
-const testPath = 'src/frontend/pages/test/PLACEHOLDER.html';
 const newPath = 'src/frontend/pages/home/index.html';
 
 app.get('/', (req, res) => {

@@ -1,6 +1,8 @@
 ### Abrir o DB
 
-`http://localhost/phpmyadmin/`
+``
+[http://localhost/phpmyadmin/](http://localhost/phpmyadmin/)
+``
 
 ### Instalar pacotes do package.json
 
@@ -25,17 +27,17 @@ commit novo...
 
 ### Subir um novo commit
 
-```
+``
 git add .
 git commit -m "Alterei X Coisa"
 git push
-```
+``
 
 ### Para clonar o projeto no seu PC
 
-```
+``
 git clone https://github.com/Resfriado/osf.git Osf
-```
+``
 
 ### Regras do front-end
 
@@ -80,3 +82,4 @@ Precisa ser utilizado com `d-flex` ou `d-grid`
 - `livereload`
 - `sweetalert2`
 - `jcalendar.js`
+- `pace-js`

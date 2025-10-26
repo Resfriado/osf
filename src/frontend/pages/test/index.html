@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+    <script>
+      window.paceOptions = {
+        restartOnRequestAfter: false,
+        ajax: false,
+        elements: false,
+        minTime: 400,
+      };
+    </script>
+    <link rel="stylesheet" href="/public/css/loading.css" />
+    <link
+      rel="stylesheet"
+      href="/public/assets/pace-js/pace-theme-loading-bar.css"
+    />
+    <script src="/public/assets/pace-js/pace.min.js"></script>
+    <script>
+      Pace.on("start", () => {
+        document.body.style.overflow = "hidden";
+        const o = document.getElementById("preloader-overlay");
+        if (o) o.style.display = "flex";
+      });
+      Pace.on("done", () => {
+        const o = document.getElementById("preloader-overlay");
+        if (o) {
+          o.style.opacity = "0";
+          setTimeout(() => (o.style.display = "none"), 400);
+        }
+        document.body.style.overflow = "auto";
+      });
+    </script>
+
+    <script src="/public/js/setup.js" defer></script>
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <div id="preloader-overlay"></div>
+    
+    <header id="header-placeholder"></header>
+    <div class="template-page flex-fill">
+      <form action=" /test" method="post">
+        <button type="submit" class="btn">submit</button>
+      </form>
+    </div>
+    <footer id="footer-placeholder" class=""></footer>
+
+    <script src="/public/js/layout.js"></script>
+  </body>
+</html>
