@@ -1,8 +1,8 @@
 ### Abrir o DB
 
-``
+
 [http://localhost/phpmyadmin/](http://localhost/phpmyadmin/)
-``
+
 
 ### Instalar pacotes do package.json
 
