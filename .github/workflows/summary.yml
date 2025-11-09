@@ -1,89 +1,40 @@
-name: Update all open issues with AI descriptions
+name: Summarize new issues
 
 on:
-  workflow_dispatch: # permite execução manual
-  schedule:
-    - cron: "*/1 * * * *" # executa a cada 1 minuto
-
-permissions:
-  issues: write
-  contents: read
+  issues:
+    types: [opened]
 
 jobs:
-  update-issues:
+  summary:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      models: read
+      contents: read
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: List all open issues
-        id: list
-        uses: actions/github-script@v6
+      - name: Run AI inference
+        id: inference
+        uses: actions/ai-inference@v1
         with:
-          script: |
-            const issues = await github.paginate(
-              github.rest.issues.listForRepo,
-              {
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                state: "open",
-              }
-            );
-            const list = issues
-              .filter(i => !i.pull_request)
-              .map(i => i.number);
-            core.setOutput("issues", JSON.stringify(list));
-            core.info(`Found ${list.length} open issues.`);
-
-      - name: Process each open issue
-        uses: actions/github-script@v6
+          prompt: |
+            You are an assistant that writes a concise, developer-friendly, and localized description for a GitHub issue.
+            Create:
+            1) One short paragraph translated in the language the title and body is using, summarizing the issue in a clear technical tone.
+            2) A short, bullet-style step-by-step checklist (3-6 steps) on how to approach/solve the issue.
+            3) A short "notes" line about environment or prerequisites if relevant.
+            Important: no extra sections; do not repeat the paragraph. Output only the content (no markdown title lines).
+            Title: ${{ github.event.issue.title }}
+            Current body: ${{ github.event.issue.body }}
+            Output must be appropriate to be placed in the issue body.
+            
+      - name: Comment with AI summary
+        run: |
+          gh issue comment $ISSUE_NUMBER --body "${{ steps.inference.outputs.response }}"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUES: ${{ steps.list.outputs.issues }}
-        with:
-          script: |
-            const issues = JSON.parse(process.env.ISSUES);
-            for (const issueNumber of issues) {
-              core.info(`Processing issue #${issueNumber}`);
-
-              const { data: issue } = await github.rest.issues.get({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: issueNumber
-              });
-
-              const body = issue.body || "";
-              const hasSummary = body.includes("<!-- ai-summary -->");
-
-              if (!hasSummary || body.trim().length < 30) {
-                core.info(`Generating summary for issue #${issueNumber}`);
-
-                // Simula o resultado da IA
-                const aiSummary = `
-<!-- ai-summary -->
-${issue.title} — summarized automatically.
-
-Steps:
-1. Review the context of this issue.
-2. Apply required logic as described.
-3. Test changes and verify resolution.
-
-Notes: Generated automatically for ${issue.title}.
-<!-- ai-summary:end -->
-                `.trim();
-
-                const newBody = `${body.trim()}\n\n${aiSummary}`;
-
-                await github.rest.issues.update({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  issue_number: issueNumber,
-                  body: newBody
-                });
-
-                core.info(`✅ Updated issue #${issueNumber}`);
-              } else {
-                core.info(`⏩ Issue #${issueNumber} already has an AI summary.`);
-              }
-            }
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          RESPONSE: ${{ steps.inference.outputs.response }}
