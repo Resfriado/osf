@@ -10,11 +10,49 @@
     <section class="hero has-background-primary">
       <div class="hero-head has-background-black-bis">
         <nav class="navbar">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link has-text-white has-text-weight-bold is-flex">
+              <span class="icon-text">
+                <span class="icon">
+                  <i class="fas fa-bars has-text-danger"></i>
+                </span>
+                <span>Menu</span>
+              </span>
+            </a>
+            <div class="navbar-dropdown is-left">
+              <a class="navbar-item has-text-weight-bold">
+                <span class="icon-text">
+                  <span class="icon">
+                    <i class="fas fa-clock-rotate-left has-text-danger"></i>
+                  </span>
+                <span>Histórico</span>
+              </span>
+            </a>
+              <a class="navbar-item has-text-weight-bold">
+                <span class="icon-text">
+                  <span class="icon">
+                    <i class="fas fa-gear has-text-danger"></i>
+                  </span>
+                <span>Configurações</span>
+              </span>                
+              </a>
+              <hr class="navbar-divider" />
+              <a class="navbar-item has-text-weight-bold">
+                <span class="icon-text">
+                  <span class="icon">
+                    <i class="fas fa-right-from-bracket has-text-danger"></i>
+                  </span>
+                <span>Logout</span>
+              </span>
+              </a>
+            </div>
+          </div>
           <div class="navbar-brand">
             <a class="navbar-item">
               <figure class="image">
                 <img src="public/images/logo.png" />
               </figure>
+                <span class="title is-5">OSF</span>
             </a>
             <span class="navbar-burger" data-target="navbarMenuHeroA">
               <span></span>
@@ -27,23 +65,20 @@
             <div class="navbar-end">
               <a class="navbar-item has-text-white" href="/home">
                 <span class="icon-text">
-                  <span class="icon">
+                  <span class="icon has-text-danger">
                     <i class="fas fa-home"></i>
                   </span>
-                  <span>Home</span>
+                  <span class="has-text-weight-bold">Home</span>
                 </span>
               </a>
-              <a class="navbar-item has-text-white">Meus Agendamentos</a>
-              <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link has-text-white"> Menu </a>
-
-                <div class="navbar-dropdown is-right">
-                  <a class="navbar-item"> Histórico </a>
-                  <a class="navbar-item"> Configurações </a>
-                  <hr class="navbar-divider" />
-                  <a class="navbar-item"> Logout </a>
-                </div>
-              </div>
+              <a class="navbar-item has-text-white">
+                <span class="icon-text">
+                  <span class="icon has-text-danger">
+                    <i class="fas fa-box"></i>
+                  </span>
+                  <span class="has-text-weight-bold">Meus Agendamentos</span>
+                </span>
+              </a>
             </div>
           </div>
         </nav>
@@ -51,26 +86,44 @@
       <div class="hero-body p-0 pb-2">
         <div class="container has-text-centered">
           <p class="title is-1 has-text-white">OSF</p>
-          <p class="subtitle is-3 has-text-black">Barbearia</p>
+          <p class="subtitle is-3 has-text-black has-text-weight-bold">Barbearia</p>
         </div>
       </div>
+      <is-divider class="has-background-black" style="height: 1px;"></is-divider>
       <div class="hero-foot">
         <nav class="tabs is-boxed">
           <div class="container">
             <ul>
-              <li class="is-flex-grow-1"></li>
-              <li class="is-active is-flex-grow-1 has-text-centered">
-                <a class="p-2"><span class="has-text-white">Login</span></a>
+              <li class="is-active has-text-centered">
+                <a>
+                  <span class="px-6">
+                    <span class="icon has-text-danger">
+                      <i class="fas fa-circle-user"></i>
+                    </span>
+                    <span class="has-text-white has-text-weight-bold">Login</span>
+                  </span>
+                </a>
               </li>
-              <li class="is-flex-grow-1 has-text-centered">
-                <a class="p-2"
-                  ><span class="has-text-white">Apresentação</span></a
-                >
+              <li class="has-text-centered">
+                <a>
+                  <span class="px-6">
+                    <span class="icon has-text-danger">
+                      <i class="fas fa-map-pin"></i>
+                    </span>
+                  <span class="has-text-white has-text-weight-bold">Apresentação</span>
+                </span>
+              </a>
               </li>
-              <li class="is-flex-grow-1 has-text-centered">
-                <a class="p-2"><span class="has-text-white">Serviços</span></a>
+              <li class="has-text-centered">
+                <a>
+                  <span class="px-6">
+                    <span class="icon has-text-danger">
+                      <i class="fas fa-scissors"></i>
+                    </span>
+                  <span class="has-text-white has-text-weight-bold">Serviços</span>
+                </span>
+              </a>
               </li>
-              <li class="is-flex-grow-1"></li>
             </ul>
           </div>
         </nav>

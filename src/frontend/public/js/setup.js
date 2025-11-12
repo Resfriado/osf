@@ -60,3 +60,5 @@
 
   console.log(`📄 Página detectada: ${pageFolder}`);
 })();
+
+

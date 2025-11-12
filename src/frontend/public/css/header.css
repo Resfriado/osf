@@ -1,34 +1,22 @@
-.nav-item {
-  border-radius: 16px;
-  font-weight: 700;
-  transition: background-color 0.3s ease, color 0.3s ease;
+.navbar-link::after { 
+  display: none !important;
+}
+.navbar-item.has-dropdown .navbar-dropdown {
+  min-width: 100% !important;
+}
+/* Force icon-text items to stay in one line */
+.navbar-dropdown .navbar-item .icon-text {
+  flex-wrap: nowrap !important;
+  align-items: center;
 }
 
-.nav-item .nav-link {
-  transition: color 0.3s ease;
+/* Prevent text wrapping inside dropdown */
+.navbar-dropdown .navbar-item {
+  white-space: nowrap !important;
 }
 
-.nav-item:hover {
-  background-color: var(--bs-secondary);
-}
-
-.nav-item:hover .nav-link {
-  color: var(--bs-light) !important;
-}
-
-header .line {
-  background-color: #4b4b4b;
-}
-
-header .btn {
-  border-radius: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease, filter 0.3s ease;
-}
-
-header .btn:hover {
-  background-color: var(--bs-light);
-  color: var(--bs-dark) !important;
-  filter: none;
+/* Optional: remove default Bulma min-width that can conflict */
+.navbar-item.has-dropdown .navbar-dropdown {
+  min-width: auto !important;
+  width: auto !important;
 }

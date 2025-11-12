@@ -47,25 +47,60 @@ function setupHeaderButton() {
   }
 }
 
-// 🔹 Ativa o menu hamburguer do Bulma
-function setupNavbarBurger() {
-  const burgers = document.querySelectorAll(".navbar-burger");
-  burgers.forEach((burger) => {
-    burger.addEventListener("click", () => {
-      const targetId = burger.dataset.target;
-      const target = document.getElementById(targetId);
-
-      burger.classList.toggle("is-active");
-      target.classList.toggle("is-active");
-    });
-  });
-  console.log("✅ Navbar burger ativado");
-}
-
 // 🧩 Carrega o header e o footer
 loadPartial("header-placeholder", "/public/partials/header.html", () => {
   setupHeaderButton();
-  setupNavbarBurger(); // <--- importante: só roda depois de o header existir
+  requestAnimationFrame(() => setupDropdownWidth());
 });
 
 loadPartial("footer-placeholder", "/public/partials/footer.html");
+
+
+// 🔧 Ajusta a largura do menu e dropdown para coincidir com os itens
+function setupDropdownWidth() {
+  const dropdownWrappers = document.querySelectorAll('.navbar-item.has-dropdown');
+  if (!dropdownWrappers.length) return;
+
+  dropdownWrappers.forEach(ddWrap => {
+    const link = ddWrap.querySelector('.navbar-link');
+    const dropdown = ddWrap.querySelector('.navbar-dropdown');
+    const items = dropdown ? Array.from(dropdown.querySelectorAll('.navbar-item')) : [];
+
+    if (!dropdown || items.length === 0 || !link) return;
+
+    // Temporariamente exibe o dropdown para medir (invisível)
+    const origDisplay = dropdown.style.display;
+    const origVisibility = dropdown.style.visibility;
+    const origPosition = dropdown.style.position;
+
+    dropdown.style.display = 'block';
+    dropdown.style.visibility = 'hidden';
+    dropdown.style.position = 'absolute';
+
+    let max = 0;
+    items.forEach(i => {
+      i.style.whiteSpace = 'nowrap';
+      const rect = i.getBoundingClientRect();
+      if (rect.width > max) max = rect.width;
+    });
+
+    // Restaura estilos originais
+    dropdown.style.display = origDisplay;
+    dropdown.style.visibility = origVisibility;
+    dropdown.style.position = origPosition;
+
+    // Define largura final (um pequeno buffer de 6px)
+    const finalWidth = Math.ceil(max) + 6;
+
+    link.style.width = finalWidth + 'px';
+    link.style.display = 'inline-block';
+    dropdown.style.minWidth = finalWidth + 'px';
+    dropdown.style.width = 'auto';
+
+    // Garante que os itens usem 100% da largura do dropdown
+    items.forEach(i => {
+      i.style.display = 'block';
+      i.style.width = '100%';
+    });
+  });
+}
