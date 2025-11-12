@@ -38,13 +38,38 @@
   </head>
   <body class="d-flex flex-column min-vh-100">
     <div id="preloader-overlay"></div>
-    
+
     <header id="header-placeholder"></header>
-    <div class="template-page flex-fill">
-      <form action=" /test" method="post">
-        <button type="submit" class="btn">submit</button>
-      </form>
-    </div>
+    <main class="section">
+      <div class="container">
+        <h1 class="title">Bulma</h1>
+        <p class="subtitle">
+          Modern CSS framework based on
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox"
+            >Flexbox</a
+          >
+        </p>
+        <div class="field">
+          <div class="control">
+            <input class="input" type="text" placeholder="Input" />
+          </div>
+        </div>
+        <div class="field">
+          <p class="control">
+            <span class="select">
+              <select>
+                <option>Select dropdown</option>
+              </select>
+            </span>
+          </p>
+        </div>
+        <div class="buttons">
+          <a class="button is-primary">Primary</a>
+          <a class="button is-link">Link</a>
+        </div>
+      </div>
+    </main>
     <footer id="footer-placeholder" class=""></footer>
 
     <script src="/public/js/layout.js"></script>

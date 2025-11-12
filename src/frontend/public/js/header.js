@@ -9,6 +9,7 @@ function loadPartial(id, url, callback) {
     .catch((err) => console.error(`Erro ao carregar ${url}:`, err));
 }
 
+// 🔹 Ativa o botão do header (login/logout)
 function setupHeaderButton() {
   const btn = document.getElementById("header-action-btn");
   if (!btn) return;
@@ -46,10 +47,25 @@ function setupHeaderButton() {
   }
 }
 
-// Como o script já é defer, podemos executar direto
-loadPartial(
-  "header-placeholder",
-  "/public/partials/header.html",
-  setupHeaderButton
-);
+// 🔹 Ativa o menu hamburguer do Bulma
+function setupNavbarBurger() {
+  const burgers = document.querySelectorAll(".navbar-burger");
+  burgers.forEach((burger) => {
+    burger.addEventListener("click", () => {
+      const targetId = burger.dataset.target;
+      const target = document.getElementById(targetId);
+
+      burger.classList.toggle("is-active");
+      target.classList.toggle("is-active");
+    });
+  });
+  console.log("✅ Navbar burger ativado");
+}
+
+// 🧩 Carrega o header e o footer
+loadPartial("header-placeholder", "/public/partials/header.html", () => {
+  setupHeaderButton();
+  setupNavbarBurger(); // <--- importante: só roda depois de o header existir
+});
+
 loadPartial("footer-placeholder", "/public/partials/footer.html");
