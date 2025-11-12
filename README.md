@@ -1,3 +1,5 @@
+[CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
+
 ### Iniciar o DB
 
 [http://localhost/phpmyadmin/](http://localhost/phpmyadmin/)
