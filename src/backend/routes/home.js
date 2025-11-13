@@ -1,21 +1,7 @@
 const express = require("express");
-const path = require("path");
-const crypto = require("crypto");
-const db = require("../core/config/dbConnection"); // ajusta o caminho conforme sua pasta
 const router = express.Router();
+const homeController = require("../controllers/homeController");
 
-const route = '/home';
-const newPath = 'frontend/pages/auth/index.html';
-const newRoute = '/auth';
-
-router.post(route, (req, res) => {
-  const { service } = req.body;
-  console.log('🔒 - Login requisitado');
-  res.redirect(newRoute);
-});
-
-router.get(newRoute, (req, res) => {
-  res.sendFile(path.join(__dirname, "../../", newPath));
-});
+router.post("/home", homeController.login);
 
 module.exports = router;

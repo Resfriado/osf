@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const router = express.Router();
-const authController = require('../controllers/authController');
+const authController = require('../controllers/homeController');
 
 const route = '/auth';
 const newPath = 'frontend/pages/shop/pricing/index.html';
