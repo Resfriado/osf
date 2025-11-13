@@ -47,9 +47,10 @@
   injectLink("/public/assets/jcalendar.js/jcalendar.js.css");
   
   // 🧩 CSS específico da página
+  injectLink("/public/css/global.css");
   injectLink(`/public/css/${pageFolder}.css`);
-  injectLink(`/public/css/header.css`);
-  injectLink(`/public/css/footer.css`);
+  injectLink("/public/css/header.css");
+  injectLink("/public/css/footer.css");
 
   
 

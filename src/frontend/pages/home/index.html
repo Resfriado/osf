@@ -1,132 +1,99 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <script>
-      window.paceOptions = {
-        restartOnRequestAfter: false,
-        ajax: false,
-        elements: false,
-        minTime: 400,
-      };
-    </script>
-    <link rel="stylesheet" href="/public/css/loading.css" />
-    <link
-      rel="stylesheet"
-      href="/public/assets/pace-js/pace-theme-loading-bar.css"
-    />
-    <script src="/public/assets/pace-js/pace.min.js"></script>
-    <script>
-      Pace.on("start", () => {
-        document.body.style.overflow = "hidden";
-        const o = document.getElementById("preloader-overlay");
-        if (o) o.style.display = "flex";
-      });
-      Pace.on("done", () => {
-        const o = document.getElementById("preloader-overlay");
-        if (o) {
-          o.style.opacity = "0";
-          setTimeout(() => (o.style.display = "none"), 400);
-        }
-        document.body.style.overflow = "auto";
-      });
-    </script>
-    <script src="/public/js/setup.js" defer></script>
-  </head>
 
-  <body class="d-flex flex-column min-vh-100">
-    <div id="preloader-overlay"></div>
-    <header id="header-placeholder"></header>
-    <div class="home-page container flex-fill">
-      <!-- Linha 1 -->
-      <div
-        class="row text-center g-4 mb-4 d-flex justify-content-center align-items-center mt-3"
-      >
-        <div
-          class="col-12 col-md-6 d-flex flex-row align-items-center justify-content-center gap-5"
-        >
-          <img
-            class="haircut me-3"
-            src="/public/images/haircut1.jpg"
-            alt="haircut1"
-          />
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <script>
+    window.paceOptions = {
+      restartOnRequestAfter: false,
+      ajax: false,
+      elements: false,
+      minTime: 400,
+    };
+  </script>
+  <link rel="stylesheet" href="/public/css/loading.css" />
+  <link rel="stylesheet" href="/public/assets/pace-js/pace-theme-loading-bar.css" />
+  <script src="/public/assets/pace-js/pace.min.js"></script>
+  <script>
+    Pace.on("start", () => {
+      document.body.style.overflow = "hidden";
+      const o = document.getElementById("preloader-overlay");
+      if (o) o.style.display = "flex";
+    });
+    Pace.on("done", () => {
+      const o = document.getElementById("preloader-overlay");
+      if (o) {
+        o.style.opacity = "0";
+        setTimeout(() => (o.style.display = "none"), 400);
+      }
+      document.body.style.overflow = "auto";
+    });
+  </script>
+  <script src="/public/js/setup.js" defer></script>
+</head>
+
+<body class="is-flex is-flex-direction-column">
+  <div id="preloader-overlay"></div>
+  <header id="header-placeholder"></header>
+  <div class="p-2"></div>
+  <main class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column"></div>
+        <div class="column">
+          <div class="box is-rounded has-background-black">
+            <form>
+              <div class="container has-text-centered pb-3">
+                <p class="has-text-weight-semibold">Faça Login ou Clique em <a href="#"
+                    class="has-text-weight-normal">Cadastrar-se</a> para realizar seu agendamento!
+                </p>
+              </div>
+              <div class="field">
+                <p class="control has-icons-left">
+                  <input class="input" type="email" placeholder="Email">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control has-icons-left">
+                  <input class="input" type="password" placeholder="Password">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control">
+                  <button class="button is-success is-fullwidth has-text-light has-text-weight-bold">
+                    Login
+                  </button>
+                </p>
+              </div>
+              <div class="container has-text-centered pb-3">
+                <a href="#">Cadastrar-se</a>
+              </div>
+              <div class="divider has-background-dark mb-4"></div>
+              <div id="g_id_onload" data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                data-login_uri="https://your-server.com/login-callback" data-auto_prompt="false">
+              </div>
+
+              <div class="g_id_signin" data-type="standard"></div>
+            </form>
           </div>
         </div>
-      </div>
-
-      <!-- Linha 2 -->
-      <div
-        class="row text-center g-4 mb-4 d-flex justify-content-center align-items-center"
-      >
-        <div
-          class="col-12 col-md-6 d-flex flex-row align-items-center justify-content-center gap-5"
-        >
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </div>
-          <img
-            class="haircut"
-            src="/public/images/haircut2.jpg"
-            alt="haircut2"
-          />
-        </div>
-      </div>
-
-      <!-- Linha 3 -->
-      <div
-        class="row text-center g-4 mb-4 d-flex justify-content-center align-items-center"
-      >
-        <div
-          class="col-12 col-md-6 d-flex flex-row align-items-center justify-content-center gap-5"
-        >
-          <img
-            class="haircut me-3"
-            src="/public/images/haircut3.jpg"
-            alt="haircut3"
-          />
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </div>
-        </div>
-      </div>
-
-      <!-- Linha 4 -->
-      <div
-        class="row text-center g-4 mb-4 d-flex justify-content-center align-items-center"
-      >
-        <div
-          class="col-12 col-md-6 d-flex flex-row align-items-center justify-content-center gap-5"
-        >
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </div>
-          <img
-            class="haircut"
-            src="/public/images/haircut4.jpg"
-            alt="haircut4"
-          />
-        </div>
+        <div class="column"></div>
       </div>
     </div>
+  </main>
+  <div class="p-6"></div>
+  <footer id="footer-placeholder" class=""></footer>
 
-    <footer id="footer-placeholder" class=""></footer>
+  <script src="/public/js/layout.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</body>
 
-    <script src="/public/js/layout.js"></script>
-  </body>
 </html>
