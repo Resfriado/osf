@@ -1,9 +1,15 @@
 const crypto = require('crypto');
 const usuarioModel = require('../models/usuarioModel');
+const { showPage } = require("../core/utils/pageController.js");
+const newPath = "../frontend/pages/home/index.html";
 
-async function login(req, res) {
+exports.page = showPage(newPath);
+exports.login = async function (req, res) {
   try {
     const { email, password } = req.body;
+
+    console.log("🛐 RAW PASSWORD SENT →", password);
+    console.log("🔍 RAW PASSWORD DEBUG →", JSON.stringify(password)); // <--- HERE
 
     if (!email || !password) {
       throw new Error('\x1b[0mCampos obrigatórios ausentes');
@@ -21,8 +27,6 @@ async function login(req, res) {
 
   } catch (err) {
     console.error('❌ - Login: \x1b[31m$', err ,'\x1b[0m\n');
-    return res.redirect('/auth?error=db');
+    return res.redirect('/home?error=db');
   }
 }
-
-module.exports = { login };

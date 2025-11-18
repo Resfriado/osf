@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="icon" type="image/png" href="/public/images/logo.png">
+    <script>
+      window.paceOptions = {
+        restartOnRequestAfter: false,
+        ajax: false,
+        elements: false,
+        minTime: 400,
+      };
+    </script>
+    <link rel="stylesheet" href="/public/css/loading.css" />
+    <link
+      rel="stylesheet"
+      href="/public/assets/pace-js/pace-theme-loading-bar.css"
+    />
+    <script src="/public/assets/pace-js/pace.min.js"></script>
+    <script>
+      Pace.on("start", () => {
+        document.body.style.overflow = "hidden";
+        const o = document.getElementById("preloader-overlay");
+        if (o) o.style.display = "flex";
+      });
+      Pace.on("done", () => {
+        const o = document.getElementById("preloader-overlay");
+        if (o) {
+          o.style.opacity = "0";
+          setTimeout(() => (o.style.display = "none"), 400);
+        }
+        document.body.style.overflow = "auto";
+      });
+    </script>
+
+    <script src="/public/js/setup.js" defer></script>
+  </head>
+  <body class="is-flex is-flex-direction-column">
+    <div id="preloader-overlay"></div>
+
+    <header id="header-placeholder"></header>
+  <main class="section is-flex-grow-1">
+    <div class="container">
+      <div class="columns">
+        <div class="column"></div>
+        <div class="column">
+          <div class="box is-rounded has-background-black">
+            <form action="/register" method="post">
+              <div class="container has-text-centered pb-3">
+                <p class="has-text-weight-semibold">Cadastre-se para realizar seu agendamento!
+                </p>
+              </div>
+              <div class="field">
+                <p class="control has-icons-left">
+                  <input class="input" type="text" name="name" placeholder="Name">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-signature"></i>
+                  </span>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control has-icons-left">
+                  <input class="input" type="email" name="email" placeholder="Email">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control has-icons-left">
+                  <input class="input" type="password" name="password" placeholder="Password">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control">
+                  <button class="button is-success is-fullwidth has-text-light has-text-weight-bold">
+                    Cadastrar-se
+                  </button>
+                </p>
+              </div>
+              <div class="divider has-background-dark mb-4"></div>
+              <div id="g_id_onload" data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                data-login_uri="https://your-server.com/login-callback" data-auto_prompt="false">
+              </div>
+
+              <div class="g_id_signin" data-type="standard"></div>
+            </form>
+          </div>
+        </div>
+        <div class="column"></div>
+      </div>
+    </div>
+  </main>
+    
+    <footer id="footer-placeholder"></footer>
+
+    <script src="/public/js/layout.js"></script>
+    <script src="/public/js/header.js"></script>
+    <script defer>
+        setTimeout(() => hideHeroFoot(), 50);
+    </script>
+    <script>
+  // normalizeRegisterForm.js — run before form submit
+  (function () {
+    const form = document.querySelector('form[action="/register"]') || document.querySelector('form[action=" /register"]') || document.querySelector('form');
+    if (!form) return;
+
+    form.addEventListener('submit', (ev) => {
+      try {
+        const fields = ['name','email','password'];
+        fields.forEach(name => {
+          const inp = form.elements[name];
+          if (!inp || !inp.value) return;
+          // remove CR/LF anywhere and trim edges
+          inp.value = inp.value.replace(/[\r\n]/g, "").trim();
+        });
+      } catch (e) {
+        // don't block submit for unexpected errors
+        console.warn('normalize submit error', e);
+      }
+    }, { passive: true });
+  })();
+</script>
+
+  </body>
+</html>

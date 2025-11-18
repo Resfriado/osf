@@ -1,10 +1,11 @@
 const express = require('express');
 const fs = require('fs');
-const home = require('./routes/home.js');
-const auth = require('./routes/auth.js');
-const pricing = require('./routes/pricing.js');
-const team = require('./routes/team.js');
-const booking = require('./routes/booking.js');
+const auth = require('./routes/authRoute.js');
+const register = require('./routes/registerRoute.js')
+const home = require('./routes/homeRoute.js');
+const pricing = require('./routes/pricingRoute.js');
+const team = require('./routes/teamRoute.js');
+const booking = require('./routes/bookingRoute.js');
 
 const app = express();
 
@@ -32,8 +33,9 @@ app.get(route, (req, res) => {
   });
 });
 
-app.use('/', home);
 app.use('/', auth);
+app.use('/', register);
+app.use('/', home);
 app.use('/', pricing);
 app.use('/', team);
 app.use('/', booking);
