@@ -90,3 +90,4 @@ Precisa ser utilizado com `d-flex` ou `d-grid`
 - `sweetalert2`
 - `jcalendar.js`
 - `pace-js`
+- `bcryptjs`
