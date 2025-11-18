@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Serviços</title>
+    <link rel="icon" type="image/png" href="/public/images/logo.png">
     <script>
       window.paceOptions = {
         restartOnRequestAfter: false,
@@ -52,7 +53,7 @@
         <input type="text" placeholder="Procurar serviços..." />
       </div>
 
-      <form class="container" action="/pricing" method="POST">
+      <form class="container" action="/team" method="GET">
         <h1 class="text-center mb-3">Serviços Disponíveis</h1>
         <div class="row">
           <button
@@ -171,6 +172,12 @@
     <footer id="footer-placeholder" class=""></footer>
 
     <script src="/public/js/layout.js"></script>
+    <script src="/public/js/hideHeroFoot.js"></script>
+    <script src="/public/js/showBreadcrumb.js"></script>
+    <script>
+        setTimeout(() => hideHeroFoot(), 50);
+        setTimeout(() => showBreadcrumb(), 50);
+    </script>
     <script>
       document
         .querySelector(".search-bar input")

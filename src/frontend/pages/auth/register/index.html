@@ -100,32 +100,9 @@
     <footer id="footer-placeholder"></footer>
 
     <script src="/public/js/layout.js"></script>
-    <script src="/public/js/header.js"></script>
-    <script defer>
+    <script src="/public/js/hideHeroFoot.js"></script>
+    <script>
         setTimeout(() => hideHeroFoot(), 50);
     </script>
-    <script>
-  // normalizeRegisterForm.js — run before form submit
-  (function () {
-    const form = document.querySelector('form[action="/register"]') || document.querySelector('form[action=" /register"]') || document.querySelector('form');
-    if (!form) return;
-
-    form.addEventListener('submit', (ev) => {
-      try {
-        const fields = ['name','email','password'];
-        fields.forEach(name => {
-          const inp = form.elements[name];
-          if (!inp || !inp.value) return;
-          // remove CR/LF anywhere and trim edges
-          inp.value = inp.value.replace(/[\r\n]/g, "").trim();
-        });
-      } catch (e) {
-        // don't block submit for unexpected errors
-        console.warn('normalize submit error', e);
-      }
-    }, { passive: true });
-  })();
-</script>
-
   </body>
 </html>

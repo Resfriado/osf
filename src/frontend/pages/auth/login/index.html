@@ -1,120 +1,100 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fazer login</title>
-    <script>
-      window.paceOptions = {
-        restartOnRequestAfter: false,
-        ajax: false,
-        elements: false,
-        minTime: 400,
-      };
-    </script>
-    <link rel="stylesheet" href="/public/css/loading.css" />
-    <link
-      rel="stylesheet"
-      href="/public/assets/pace-js/pace-theme-loading-bar.css"
-    />
-    <script src="/public/assets/pace-js/pace.min.js"></script>
-    <script>
-      Pace.on("start", () => {
-        document.body.style.overflow = "hidden";
-        const o = document.getElementById("preloader-overlay");
-        if (o) o.style.display = "flex";
-      });
-      Pace.on("done", () => {
-        const o = document.getElementById("preloader-overlay");
-        if (o) {
-          o.style.opacity = "0";
-          setTimeout(() => (o.style.display = "none"), 400);
-        }
-        document.body.style.overflow = "auto";
-      });
-    </script>
-    <link
-      href="
-    /public/assets/sweetalert2/sweetalert2.min.css
-    "
-      rel="stylesheet"
-    />
-    <script src="
-    /public/assets/sweetalert2/sweetalert2.all.min.js
-    "></script>
-    <script src="/public/js/setup.js" defer></script>
-  </head>
-  <body class="d-flex flex-column min-vh-100">
-    <div id="preloader-overlay"></div>
-    <header id="header-placeholder"></header>
 
-    <div
-      class="auth-page flex-grow-1 d-flex justify-content-center align-items-center"
-    >
-      <form action=" /auth" method="post">
-        <img class="logo" src="/public/images/logo.png" alt="logo" />
-        <h2>Fazer login</h2>
-        <input
-          type="email"
-          name="email"
-          class="form-control"
-          placeholder="E-mail"
-        />
-        <input
-          type="password"
-          name="senha"
-          class="form-control"
-          placeholder="Senha"
-        />
-        <button type="submit" class="btn">Enviar</button>
-      </form>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="icon" type="image/png" href="/public/images/logo.png">
+  <script>
+    window.paceOptions = {
+      restartOnRequestAfter: false,
+      ajax: false,
+      elements: false,
+      minTime: 400,
+    };
+  </script>
+  <link rel="stylesheet" href="/public/css/loading.css" />
+  <link rel="stylesheet" href="/public/assets/pace-js/pace-theme-loading-bar.css" />
+  <script src="/public/assets/pace-js/pace.min.js"></script>
+  <script>
+    Pace.on("start", () => {
+      document.body.style.overflow = "hidden";
+      const o = document.getElementById("preloader-overlay");
+      if (o) o.style.display = "flex";
+    });
+    Pace.on("done", () => {
+      const o = document.getElementById("preloader-overlay");
+      if (o) {
+        o.style.opacity = "0";
+        setTimeout(() => (o.style.display = "none"), 400);
+      }
+      document.body.style.overflow = "auto";
+    });
+  </script>
+  <script src="/public/js/setup.js" defer></script>
+</head>
+
+<body class="is-flex is-flex-direction-column">
+  <div id="preloader-overlay"></div>
+  <header id="header-placeholder"></header>
+  <div class="p-2"></div>
+  <main class="section is-flex-grow-1">
+    <div class="container">
+      <div class="columns">
+        <div class="column"></div>
+        <div class="column">
+          <div class="box is-rounded has-background-black">
+            <form action=" /login" method="post">
+              <div class="container has-text-centered pb-3">
+                <p class="has-text-weight-semibold">Faça Login ou clique em <a href="/register"
+                    class="has-text-weight-normal">Cadastrar-se</a> para realizar seu agendamento!
+                </p>
+              </div>
+              <div class="field">
+                <p class="control has-icons-left">
+                  <input class="input" type="email" name="email" placeholder="Email">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control has-icons-left">
+                  <input class="input" type="password" name="password" placeholder="Password">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control">
+                  <button class="button is-success is-fullwidth has-text-light has-text-weight-bold">
+                    Login
+                  </button>
+                </p>
+              </div>
+              <div class="container has-text-centered pb-3">
+                <a href="/register">Cadastrar-se</a>
+              </div>
+              <div class="divider has-background-dark mb-4"></div>
+              <div id="g_id_onload" data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                data-login_uri="https://your-server.com/login-callback" data-auto_prompt="false">
+              </div>
+
+              <div class="g_id_signin" data-type="standard"></div>
+            </form>
+          </div>
+        </div>
+        <div class="column"></div>
+      </div>
     </div>
-    <footer id="footer-placeholder"></footer>
-    <script src="/public/js/layout.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const params = new URLSearchParams(window.location.search);
-        const error = params.get("error");
+  </main>
+  <div class="p-6"></div>
+  <footer id="footer-placeholder" class=""></footer>
 
-        if (error) {
-          // Remove imediatamente o parâmetro da URL
-          params.delete("error");
-          const newUrl =
-            window.location.pathname +
-            (params.toString() ? "?" + params.toString() : "");
-          window.history.replaceState({}, "", newUrl);
+  <script src="/public/js/layout.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</body>
 
-          // Agora mostra o alerta normalmente
-          let title = "";
-          let text = "";
-          let icon = "";
-
-          switch (error) {
-            case "missing":
-              icon = "warning";
-              title = "Campos obrigatórios";
-              text = "Por favor, preencha e-mail e senha.";
-              break;
-            case "invalid":
-              icon = "error";
-              title = "Oops...";
-              text = "E-mail ou senha inválida!";
-              break;
-            case "blocked":
-              icon = "error";
-              title = "Usuário bloqueado";
-              text = "Contate o administrador para mais informações.";
-              break;
-            case "db":
-              icon = "error";
-              title = "Erro no servidor";
-              text = "Falha ao conectar com o banco de dados.";
-              break;
-          }
-
-          Swal.fire({ icon, title, text });
-        }
-      });
-    </script>
-  </body>
 </html>

@@ -1,99 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+    <link rel="icon" type="image/png" href="/public/images/logo.png">
+    <script>
+      window.paceOptions = {
+        restartOnRequestAfter: false,
+        ajax: false,
+        elements: false,
+        minTime: 400,
+      };
+    </script>
+    <link rel="stylesheet" href="/public/css/loading.css" />
+    <link
+      rel="stylesheet"
+      href="/public/assets/pace-js/pace-theme-loading-bar.css"
+    />
+    <script src="/public/assets/pace-js/pace.min.js"></script>
+    <script>
+      Pace.on("start", () => {
+        document.body.style.overflow = "hidden";
+        const o = document.getElementById("preloader-overlay");
+        if (o) o.style.display = "flex";
+      });
+      Pace.on("done", () => {
+        const o = document.getElementById("preloader-overlay");
+        if (o) {
+          o.style.opacity = "0";
+          setTimeout(() => (o.style.display = "none"), 400);
+        }
+        document.body.style.overflow = "auto";
+      });
+    </script>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home</title>
-  <script>
-    window.paceOptions = {
-      restartOnRequestAfter: false,
-      ajax: false,
-      elements: false,
-      minTime: 400,
-    };
-  </script>
-  <link rel="stylesheet" href="/public/css/loading.css" />
-  <link rel="stylesheet" href="/public/assets/pace-js/pace-theme-loading-bar.css" />
-  <script src="/public/assets/pace-js/pace.min.js"></script>
-  <script>
-    Pace.on("start", () => {
-      document.body.style.overflow = "hidden";
-      const o = document.getElementById("preloader-overlay");
-      if (o) o.style.display = "flex";
-    });
-    Pace.on("done", () => {
-      const o = document.getElementById("preloader-overlay");
-      if (o) {
-        o.style.opacity = "0";
-        setTimeout(() => (o.style.display = "none"), 400);
-      }
-      document.body.style.overflow = "auto";
-    });
-  </script>
-  <script src="/public/js/setup.js" defer></script>
-</head>
+    <script src="/public/js/setup.js" defer></script>
+  </head>
+  <body class="is-flex is-flex-direction-column min-vh-100">
+    <div id="preloader-overlay"></div>
 
-<body class="is-flex is-flex-direction-column">
-  <div id="preloader-overlay"></div>
-  <header id="header-placeholder"></header>
-  <div class="p-2"></div>
-  <main class="section is-flex-grow-1">
-    <div class="container">
-      <div class="columns">
-        <div class="column"></div>
-        <div class="column">
-          <div class="box is-rounded has-background-black">
-            <form action=" /home" method="post">
-              <div class="container has-text-centered pb-3">
-                <p class="has-text-weight-semibold">Faça Login ou clique em <a href="/register"
-                    class="has-text-weight-normal">Cadastrar-se</a> para realizar seu agendamento!
-                </p>
-              </div>
-              <div class="field">
-                <p class="control has-icons-left">
-                  <input class="input" type="email" name="email" placeholder="Email">
-                  <span class="icon is-small is-left">
-                    <i class="fas fa-envelope"></i>
-                  </span>
-                </p>
-              </div>
-              <div class="field">
-                <p class="control has-icons-left">
-                  <input class="input" type="password" name="password" placeholder="Password">
-                  <span class="icon is-small is-left">
-                    <i class="fas fa-lock"></i>
-                  </span>
-                </p>
-              </div>
-              <div class="field">
-                <p class="control">
-                  <button class="button is-success is-fullwidth has-text-light has-text-weight-bold">
-                    Login
-                  </button>
-                </p>
-              </div>
-              <div class="container has-text-centered pb-3">
-                <a href="/register">Cadastrar-se</a>
-              </div>
-              <div class="divider has-background-dark mb-4"></div>
-              <div id="g_id_onload" data-client_id="YOUR_GOOGLE_CLIENT_ID"
-                data-login_uri="https://your-server.com/login-callback" data-auto_prompt="false">
-              </div>
-
-              <div class="g_id_signin" data-type="standard"></div>
-            </form>
-          </div>
+    <header id="header-placeholder"></header>
+    <main class="section is-flex-grow-1 is-flex is-align-items-center">
+      <div class="container">
+        <div class="box p-0">
+          <form action="/pricing" method="GET">
+            <input class="button is-success is-fullwidth py-6 has-text-white title is-4" type="submit" value="Iniciar Agendamento">
+          </form>
         </div>
-        <div class="column"></div>
       </div>
-    </div>
-  </main>
-  <div class="p-6"></div>
-  <footer id="footer-placeholder" class=""></footer>
+    </main>
+    
+    <footer id="footer-placeholder"></footer>
 
-  <script src="/public/js/layout.js"></script>
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
-</body>
-
+    <script src="/public/js/layout.js"></script>
+    <script src="/public/js/hideHeroFoot.js"></script>
+    <script src="/public/js/showBreadcrumb.js"></script>
+    <script>
+        setTimeout(() => hideHeroFoot(), 50);
+        setTimeout(() => showBreadcrumb(), 50);
+    </script>
+  </body>
 </html>

@@ -1,6 +1,6 @@
 const express = require('express');
 const fs = require('fs');
-const auth = require('./routes/authRoute.js');
+const login = require('./routes/loginRoute.js');
 const register = require('./routes/registerRoute.js')
 const home = require('./routes/homeRoute.js');
 const pricing = require('./routes/pricingRoute.js');
@@ -19,8 +19,8 @@ if (process.env.NODE_ENV !== 'production') {
   setupLiveReload(app);
 }
 
-const route = '/home';
-const newPath = 'src/frontend/pages/home/index.html';
+const route = '/login';
+const newPath = 'src/frontend/pages/auth/login/index.html';
 
 app.get('/', (req, res) => {
   res.redirect(route);
@@ -33,7 +33,7 @@ app.get(route, (req, res) => {
   });
 });
 
-app.use('/', auth);
+app.use('/', login);
 app.use('/', register);
 app.use('/', home);
 app.use('/', pricing);

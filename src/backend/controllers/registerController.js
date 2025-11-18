@@ -15,7 +15,7 @@ exports.register = async function (req, res) {
     await model.registerNewUser(name, email, hash);
 
     console.log(`✅ - Register: \x1b[92m${email}\x1b[0m, \x1b[92m${hash}\x1b[0m\n`);
-    return res.redirect("/pricing");
+    return res.redirect("/home");
 
   } catch (err) {
     console.error('❌ - Register: \x1b[31m$', err ,'\x1b[0m\n');
