@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Services</title>
     <link rel="icon" type="image/png" href="/public/images/logo.png">
     <script>
       window.paceOptions = {
@@ -41,35 +41,16 @@
     <div id="preloader-overlay"></div>
 
     <header id="header-placeholder"></header>
-    <main class="section is-flex-grow-1 is-flex is-flex-direction-column is-align-items-stretch">
-      <div id="dashboard" class="is-hidden">
-        <div class="container py-4">
-          <div class="box p-0">
-            <form action="/dashboard" method="GET">
-              <input class="button is-warning is-fullwidth py-6 has-text-white title is-4" type="submit" value="Admin Dashboard">
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="container py-4">
-        <div class="box p-0">
-          <form action="/pricing" method="GET">
-            <input class="button is-success is-fullwidth py-6 has-text-white title is-4" type="submit" value="Iniciar Agendamento">
-          </form>
-        </div>
+    <main class="section is-flex-grow-1">
+      <div class="container">
+        
       </div>
     </main>
     
-    <footer id="footer-placeholder"></footer>
-
     <script src="/public/js/layout.js"></script>
     <script src="/public/js/hideHeroFoot.js"></script>
-    <script src="/public/js/showBreadcrumb.js"></script>
-    <script src="/public/js/showDashboard.js"></script>
     <script>
       setTimeout(() => hideHeroFoot(), 50);
-      setTimeout(() => showBreadcrumb(), 50);
-      setTimeout(() => showDashboard(), 50);
     </script>
   </body>
 </html>

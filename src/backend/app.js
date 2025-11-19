@@ -1,13 +1,16 @@
 const express = require('express');
 const fs = require('fs');
-const session = require('./routes/sessionRoute.js');
-const login = require('./routes/loginRoute.js');
-const register = require('./routes/registerRoute.js')
-const home = require('./routes/homeRoute.js');
-const dashboard = require('./routes/dashboardRoute.js');
-const pricing = require('./routes/pricingRoute.js');
-const team = require('./routes/teamRoute.js');
-const booking = require('./routes/bookingRoute.js');
+const session = require('./routes/admin/sessionRoute.js');
+const login = require('./routes/global/loginRoute.js');
+const register = require('./routes/global/registerRoute.js')
+const home = require('./routes/global/homeRoute.js');
+const dashboard = require('./routes/admin/dashboardRoute.js');
+const services = require('./routes/admin/servicesRoute.js');
+const employees = require('./routes/admin/employeesRoute.js');
+
+const pricing = require('./routes/global/pricingRoute.js');
+const team = require('./routes/global/teamRoute.js');
+const booking = require('./routes/global/bookingRoute.js');
 
 const app = express();
 
@@ -43,6 +46,9 @@ app.use('/', login);
 app.use('/', register);
 app.use('/', home);
 app.use('/', dashboard);
+app.use('/', services);
+app.use('/', employees);
+
 app.use('/', pricing);
 app.use('/', team);
 app.use('/', booking);

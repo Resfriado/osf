@@ -1,8 +1,8 @@
 const bcrypt = require('bcryptjs');
-const model = require('../models/registerUsuarioModel.js');
-const funcionarioLoginModel = require('../models/funcionarioLoginModel.js');
-const { showPage } = require("../core/utils/pageController.js");
-const newPath = "../frontend/pages/auth/login/index.html";
+const model = require('../../models/registerUsuarioModel.js');
+const funcionarioLoginModel = require('../../models/funcionarioLoginModel.js');
+const { showPage } = require("../../core/utils/pageController.js");
+const newPath = "../../src/frontend/pages/auth/login/index.html";
 
 exports.page = showPage(newPath);
 exports.login = async function (req, res) {
