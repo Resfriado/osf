@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pricing</title>
-    <link rel="icon" type="image/png" href="/public/images/logo.png">
+    <link rel="icon" type="image/png" href="/public/images/logo.png" />
     <script>
       window.paceOptions = {
         restartOnRequestAfter: false,
@@ -41,159 +41,60 @@
 
     <header id="header-placeholder"></header>
 
-    <div class="pricing-page flex-fill">
-      <div class="filter-bar">
-        <button class="active">Todos</button>
-        <button>Barbearia</button>
-        <button>Cachos</button>
-        <button>Específico</button>
-      </div>
+    <main class="section is-flex-grow-1">
+      <div
+        class="columns is-centered is-multiline"
+        id="category-container"
+      ></div>
 
-      <div class="search-bar">
-        <input type="text" placeholder="Procurar serviços..." />
+      <div
+        class="search-bar is-flex is-justify-content-center is-align-items-center is-flex-direction-column mt-6"
+      >
+        <div class="field">
+          <div class="control has-icons-left">
+            <input class="input" type="text" placeholder="Buscar serviços..." />
+            <span class="icon is-left">
+              <i class="fas fa-search"></i>
+            </span>
+          </div>
+        </div>
+        <div class="divider has-background-danger m-6"></div>
       </div>
 
       <form class="container" action="/team" method="GET">
-        <h1 class="text-center mb-3">Serviços Disponíveis</h1>
-        <div class="row">
-          <button
-            type="submit"
-            name="service"
-            value="Barba (navalha)"
-            class="card"
-          >
-            <h3>Barba (navalha)</h3>
-            <p>Duração: 30 min</p>
-            <p>Preço: R$ 28,00</p>
-          </button>
-
-          <button
-            type="submit"
-            name="service"
-            value="Barba (máquina)"
-            class="card"
-          >
-            <h3>Barba (máquina)</h3>
-            <p>Duração: 30 min</p>
-            <p>Preço: R$ 15,00</p>
-          </button>
-
-          <button
-            type="submit"
-            name="service"
-            value="Barba + sombrancelha"
-            class="card"
-          >
-            <h3>Barba + sombrancelha</h3>
-            <p>Duração: 30 min</p>
-            <p>Preço: R$ 46,00</p>
-          </button>
-
-          <button
-            type="submit"
-            name="service"
-            value="Cabelo degradê + barba + sombrancelha"
-            class="card"
-          >
-            <h3>Cabelo degradê + barba + sombrancelha</h3>
-            <p>Duração: 1h</p>
-            <p>Preço: R$ 76,00</p>
-          </button>
-
-          <button
-            type="submit"
-            name="service"
-            value="Cabelo social + barba"
-            class="card"
-          >
-            <h3>Cabelo social + barba</h3>
-            <p>Duração: 45 min</p>
-            <p>Preço: R$ 56,00</p>
-          </button>
-
-          <button
-            type="submit"
-            name="service"
-            value="Cabelo degradê"
-            class="card"
-          >
-            <h3>Cabelo degradê</h3>
-            <p>Duração: 30 min</p>
-            <p>Preço: R$ 30,00</p>
-          </button>
-
-          <button
-            type="submit"
-            name="service"
-            value="Cabelo social"
-            class="card"
-          >
-            <h3>Cabelo social</h3>
-            <p>Duração: 30 min</p>
-            <p>Preço: R$ 28,00</p>
-          </button>
-
-          <button
-            type="submit"
-            name="service"
-            value="Cabelo degradê + barba"
-            class="card"
-          >
-            <h3>Cabelo degradê + barba</h3>
-            <p>Duração: 45 min</p>
-            <p>Preço: R$ 58,00</p>
-          </button>
-
-          <button
-            type="submit"
-            name="service"
-            value="Cabelo degradê + sombrancelha"
-            class="card"
-          >
-            <h3>Cabelo degradê + sombrancelha</h3>
-            <p>Duração: 45 min</p>
-            <p>Preço: R$ 48,00</p>
-          </button>
-
-          <button
-            type="submit"
-            name="service"
-            value="Sombrancelha"
-            class="card"
-          >
-            <h3>Sombrancelha</h3>
-            <p>Duração: 30 min</p>
-            <p>Preço: R$ 18,00</p>
-          </button>
+        <div
+          class="columns is-centered is-multiline"
+          id="service-container"
+        >
         </div>
       </form>
-    </div>
+    </main>
 
     <footer id="footer-placeholder" class=""></footer>
 
     <script src="/public/js/layout.js"></script>
     <script src="/public/js/hideHeroFoot.js"></script>
     <script src="/public/js/showBreadcrumb.js"></script>
-    <script>
-        setTimeout(() => hideHeroFoot(), 100);
-        setTimeout(() => showBreadcrumb(), 100);
-    </script>
-    <script>
-      document
-        .querySelector(".search-bar input")
-        .addEventListener("input", function (e) {
-          const searchTerm = e.target.value.toLowerCase();
-          const cards = document.querySelectorAll(".card");
+    <script src="/public/js/insertContent.js"></script>
+    <script src="/public/js/modal.js"></script>
+    <script type="module">
+      setTimeout(() => hideHeroFoot(), 100);
+      setTimeout(() => showBreadcrumb(), 100);
 
-          cards.forEach((card) => {
-            const cardText = card.textContent.toLowerCase();
-            if (cardText.includes(searchTerm)) {
-              card.style.display = "block";
-            } else {
-              card.style.display = "none";
-            }
-          });
-        });
+      const categories = await fetch("/category").then((r) => r.json());
+      console.log("Categorias carregadas:", categories);
+      insertContent(
+        "#category-container",
+        "/public/partials/category.html",
+        categories
+      );
+      const services = await fetch("/service").then((r) => r.json());
+      console.log("Serviços carregados:", services);
+      await insertContent(
+        "#service-container",
+        "/public/partials/service.html",
+        services
+      );
     </script>
   </body>
 </html>

@@ -16,4 +16,5 @@ window.insertContent = async function (containerSelector, templatePath, dataList
 
         container.appendChild(wrapper.firstElementChild);
     });
+    return true;
 };
