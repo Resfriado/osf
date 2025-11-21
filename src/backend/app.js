@@ -4,6 +4,7 @@ const session = require('./routes/admin/sessionRoute.js');
 const login = require('./routes/global/loginRoute.js');
 const register = require('./routes/global/registerRoute.js')
 const home = require('./routes/global/homeRoute.js');
+const report = require('./routes/admin/reportRoute.js');
 const dashboard = require('./routes/admin/dashboardRoute.js');
 const services = require('./routes/admin/servicesRoute.js');
 const category = require('./routes/admin/categoryRoute.js');
@@ -49,6 +50,7 @@ app.use('/', session);
 app.use('/', login);
 app.use('/', register);
 app.use('/', home);
+app.use('/', report);
 app.use('/', dashboard);
 app.use('/', services);
 app.use('/', category);

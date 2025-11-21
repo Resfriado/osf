@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Report</title>
     <link rel="icon" type="image/png" href="/public/images/logo.png">
     <script>
       window.paceOptions = {
@@ -41,30 +41,33 @@
     <div id="preloader-overlay"></div>
 
     <header id="header-placeholder"></header>
-    <main class="section is-flex-grow-1 is-flex is-flex-direction-column is-align-items-stretch">
-      <div id="report" class="is-hidden">
-        <div class="container py-4">
-          <div class="box p-0">
-            <form action="/report" method="GET">
-              <input class="button is-info is-fullwidth py-6 has-text-white title is-4" type="submit" value="Relatórios">
-            </form>
+    <main class="section is-flex-grow-1">
+      <div class="container">
+        <h1 class="title">Bulma</h1>
+        <p class="subtitle">
+          Modern CSS framework based on
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox"
+            >Flexbox</a
+          >
+        </p>
+        <div class="field">
+          <div class="control">
+            <input class="input" type="text" placeholder="Input" />
           </div>
         </div>
-      </div>
-      <div id="dashboard" class="is-hidden">
-        <div class="container py-4">
-          <div class="box p-0">
-            <form action="/dashboard" method="GET">
-              <input class="button is-warning is-fullwidth py-6 has-text-white title is-4" type="submit" value="Admin Dashboard">
-            </form>
-          </div>
+        <div class="field">
+          <p class="control">
+            <span class="select">
+              <select>
+                <option>Select dropdown</option>
+              </select>
+            </span>
+          </p>
         </div>
-      </div>
-      <div class="container py-4">
-        <div class="box p-0">
-          <form action="/pricing" method="GET">
-            <input class="button is-success is-fullwidth py-6 has-text-white title is-4" type="submit" value="Iniciar Agendamento">
-          </form>
+        <div class="buttons">
+          <a class="button is-primary">Primary</a>
+          <a class="button is-link">Link</a>
         </div>
       </div>
     </main>
@@ -72,13 +75,5 @@
     <footer id="footer-placeholder"></footer>
 
     <script src="/public/js/layout.js"></script>
-    <script src="/public/js/hideHeroFoot.js"></script>
-    <script src="/public/js/showBreadcrumb.js"></script>
-    <script src="/public/js/showDashboard.js"></script>
-    <script>
-      setTimeout(() => hideHeroFoot(), 100);
-      setTimeout(() => showBreadcrumb(), 100);
-      setTimeout(() => showDashboard(), 100);
-    </script>
   </body>
 </html>
