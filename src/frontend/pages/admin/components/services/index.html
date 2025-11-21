@@ -42,7 +42,9 @@
 
     <header id="header-placeholder"></header>
     <main class="section is-flex-grow-1">
-      <p class="title has-text-centered has-text-danger">Adicionar Categorias</p>
+      <p class="title has-text-centered has-text-danger">
+        Adicionar Categorias
+      </p>
       <div class="columns is-centered" id="category-container">
         <div
           class="column is-flex is-justify-content-center is-align-items-center is-narrow"
@@ -59,7 +61,8 @@
           </div>
         </div>
       </div>
-      <div class="divider has-background-danger"></div>
+      <div class="divider has-background-danger m-6"></div>
+      <div class="columns is-centered" id="service-container"></div>
     </main>
 
     <div id="modal-js-example" class="modal">
@@ -71,26 +74,38 @@
             <button class="delete" aria-label="close" type="button"></button>
           </header>
           <section class="modal-card-body">
-              <div class="field">
-                <p class="control has-icons-left">
-                  <input class="input" type="text" name="name" placeholder="Name">
-                  <span class="icon is-small is-left">
-                    <i class="fas fa-file-signature"></i>
-                  </span>
-                </p>
-              </div>
-              <div class="field">
-                <p class="control has-icons-left">
-                  <input class="input" type="text" name="description" placeholder="Description">
-                  <span class="icon is-small is-left">
-                    <i class="fas fa-comment-dots"></i>
-                  </span>
-                </p>
-              </div>
+            <div class="field">
+              <p class="control has-icons-left">
+                <input
+                  class="input"
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-file-signature"></i>
+                </span>
+              </p>
+            </div>
+            <div class="field">
+              <p class="control has-icons-left">
+                <input
+                  class="input"
+                  type="text"
+                  name="description"
+                  placeholder="Description"
+                />
+                <span class="icon is-small is-left">
+                  <i class="fas fa-comment-dots"></i>
+                </span>
+              </p>
+            </div>
           </section>
           <footer class="modal-card-foot">
             <div class="buttons">
-              <button class="button is-success" type="submit">Save changes</button>
+              <button class="button is-success" type="submit">
+                Save changes
+              </button>
               <button class="button" type="button">Cancel</button>
             </div>
           </footer>
@@ -109,6 +124,13 @@
       insertContent(
         "#category-container",
         "/public/partials/category.html",
+        categories
+      );
+      const services = await fetch("/service").then((r) => r.json());
+      console.log("Serviços carregadas:", servicess);
+      insertContent(
+        "#service-container",
+        "/public/partials/service.html",
         categories
       );
     </script>
