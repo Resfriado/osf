@@ -6,13 +6,9 @@ module.exports = {
       s.descricao,
       s.duracao,
       s.preco,
-      s.foto,
-      s.ativo,
-      c.categoria AS categoria_nome
+      c.categoria AS categoria
     FROM servico s
-    JOIN categoria c ON s.categoria_id = c.id
-    WHERE s.ativo = 1
-    ORDER BY s.id DESC;
+    JOIN categoria c ON c.id = s.categoria_id;
   `,
 
   getById: `
@@ -22,11 +18,9 @@ module.exports = {
       s.descricao,
       s.duracao,
       s.preco,
-      s.foto,
-      s.ativo,
-      c.categoria AS categoria_nome
+      c.categoria AS categoria
     FROM servico s
-    JOIN categoria c ON s.categoria_id = c.id
+    JOIN categoria c ON c.id = s.categoria_id
     WHERE s.id = ?;
   `
 };

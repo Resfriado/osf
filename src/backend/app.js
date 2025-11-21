@@ -6,8 +6,10 @@ const register = require('./routes/global/registerRoute.js')
 const home = require('./routes/global/homeRoute.js');
 const dashboard = require('./routes/admin/dashboardRoute.js');
 const services = require('./routes/admin/servicesRoute.js');
-const employees = require('./routes/admin/employeesRoute.js');
 const category = require('./routes/admin/categoryRoute.js');
+const service = require('./routes/admin/serviceRoute.js');
+
+const employees = require('./routes/admin/employeesRoute.js');
 
 const pricing = require('./routes/global/pricingRoute.js');
 const team = require('./routes/global/teamRoute.js');
@@ -49,8 +51,10 @@ app.use('/', register);
 app.use('/', home);
 app.use('/', dashboard);
 app.use('/', services);
-app.use('/', employees);
 app.use('/', category);
+app.use('/', service);
+
+app.use('/', employees);
 
 app.use('/', pricing);
 app.use('/', team);
