@@ -45,7 +45,7 @@
       <p class="title has-text-centered has-text-danger">
         Adicionar Categorias
       </p>
-      <div class="columns is-centered" id="category-container">
+      <div class="columns is-centered is-multiline" id="category-container">
         <div
           class="column is-flex is-justify-content-center is-align-items-center is-narrow"
         >
@@ -62,7 +62,10 @@
         </div>
       </div>
       <div class="divider has-background-danger m-6"></div>
-      <div class="columns is-centered" id="service-container">
+      <p class="title has-text-centered has-text-danger">
+        Adicionar Serviços
+      </p>
+      <div class="columns is-centered is-multiline" id="service-container">
         <div
           class="column is-flex is-justify-content-center is-align-items-center is-narrow"
         >
@@ -168,8 +171,8 @@
                 <input
                   class="input"
                   type="text"
-                  name="description"
-                  placeholder="Description"
+                  name="descricao"
+                  placeholder="Descrição"
                 />
                 <span class="icon is-small is-left">
                   <i class="fas fa-comment-dots"></i>
@@ -182,7 +185,7 @@
                   class="input"
                   type="text"
                   name="duracao"
-                  placeholder="Duração"
+                  placeholder="Duração Ex: 00:10:00"
                 />
                 <span class="icon is-small is-left">
                   <i class="fas fa-clock"></i>
@@ -195,7 +198,7 @@
                   class="input"
                   type="text"
                   name="preco"
-                  placeholder="Preço"
+                  placeholder="Preço Ex: 10.00"
                 />
                 <span class="icon is-small is-left">
                   <i class="fas fa-brazilian-real-sign"></i>
@@ -233,7 +236,7 @@
       insertContent(
         "#service-container",
         "/public/partials/service.html",
-        categories
+        services
       );
     </script>
   </body>

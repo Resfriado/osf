@@ -3,7 +3,7 @@ const query = require('../database/queries/registerServicoQuery.js');
 
 async function registerNewService(categoriaNome, nome, descricao, duracao, preco) {
   const [categoriaRows] = await db.query(
-    'SELECT id FROM categoria WHERE nome = ? LIMIT 1',
+    'SELECT id FROM categoria WHERE categoria = ? LIMIT 1',
     [categoriaNome]
   );
 
