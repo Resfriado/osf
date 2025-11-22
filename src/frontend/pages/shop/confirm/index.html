@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirmar Agendamento - OSF Barbearia</title>
+    <link rel="icon" type="image/png" href="/public/images/logo.png">
+    <script>
+      window.paceOptions = {
+        restartOnRequestAfter: false,
+        ajax: false,
+        elements: false,
+        minTime: 400,
+      };
+    </script>
+    <link rel="stylesheet" href="/public/css/loading.css" />
+    <link
+      rel="stylesheet"
+      href="/public/assets/pace-js/pace-theme-loading-bar.css"
+    />
+    <script src="/public/assets/pace-js/pace.min.js"></script>
+    <script>
+      Pace.on("start", () => {
+        document.body.style.overflow = "hidden";
+        const o = document.getElementById("preloader-overlay");
+        if (o) o.style.display = "flex";
+      });
+      Pace.on("done", () => {
+        const o = document.getElementById("preloader-overlay");
+        if (o) {
+          o.style.opacity = "0";
+          setTimeout(() => (o.style.display = "none"), 400);
+        }
+        document.body.style.overflow = "auto";
+      });
+    </script>
+
+    <script src="/public/js/setup.js" defer></script>
+  </head>
+  <body class="is-flex is-flex-direction-column min-vh-100">
+    <div id="preloader-overlay"></div>
+
+    <header id="header-placeholder"></header>
+    
+    <main class="section is-flex-grow-1">
+      <div class="container">
+        <div class="box has-background-white" style="border-radius: 15px; border: 1px solid #e8e8e8; box-shadow: 0 8px 16px rgba(0,0,0,0.1);">
+          <h1 class="title has-text-centered has-text-dark mb-6" style="font-weight: 600;">
+            <span class="icon is-large mr-3">
+            </span>
+            Confirmação do Agendamento
+          </h1>
+          
+          <div id="confirmation-message" class="notification is-success is-hidden">
+            <button class="delete"></button>
+            Agendamento confirmado com sucesso!
+          </div>
+          
+          <div class="box has-background-light" style="border-radius: 12px; border: 2px solid #f0f0f0;">
+            <h5 class="title is-6 has-text-grey-dark mb-4" style="border-bottom: 1px solid #dbdbdb; padding-bottom: 10px;">
+               Detalhes do Agendamento
+            </h5>
+            <div class="columns is-mobile is-vcentered mb-4">
+              <div class="column is-narrow" style="width: 150px; min-height: 45px;">
+                <div class="is-flex is-align-items-center is-justify-content-flex-end" style="height: 45px;">
+                  <label class="label has-text-right has-text-weight-medium has-text-grey-darker mb-0">
+                    Data:
+                  </label>
+                </div>
+              </div>
+              <div class="column">
+                <div class="is-flex is-align-items-center" style="height: 45px;">
+                  <span class="tag is-large has-text-white" style="background: #00d1b2; border-radius: 20px; padding: 8px 16px;" id="selected-date">Carregando...</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="columns is-mobile is-vcentered mb-4">
+              <div class="column is-narrow" style="width: 150px; min-height: 45px;">
+                <div class="is-flex is-align-items-center is-justify-content-flex-end" style="height: 45px;">
+                  <label class="label has-text-right has-text-weight-medium has-text-grey-darker mb-0">
+                    Horário:
+                  </label>
+                </div>
+              </div>
+              <div class="column">
+                <div class="is-flex is-align-items-center" style="height: 45px;">
+                  <span class="tag is-large has-text-white" style="background: #00d1b2; border-radius: 20px; padding: 8px 16px;" id="selected-time">Carregando...</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="columns is-mobile is-vcentered mb-4">
+              <div class="column is-narrow" style="width: 150px; min-height: 45px;">
+                <div class="is-flex is-align-items-center is-justify-content-flex-end" style="height: 45px;">
+                  <label class="label has-text-right has-text-weight-medium has-text-grey-darker mb-0">
+                    Profissional:
+                  </label>
+                </div>
+              </div>
+              <div class="column">
+                <div class="is-flex is-align-items-center" style="height: 45px;">
+                  <span class="tag is-large has-text-white" style="background: #00d1b2; border-radius: 20px; padding: 8px 16px;" id="selected-barber">Carregando...</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="columns is-mobile is-vcentered mb-4">
+              <div class="column is-narrow" style="width: 150px;">
+                <div class="is-flex is-align-items-flex-start is-justify-content-flex-end" style="padding-top: 15px;">
+                  <label class="label has-text-right has-text-weight-medium has-text-grey-darker mb-0">
+                    Serviço:
+                  </label>
+                </div>
+              </div>
+              <div class="column">
+                <div class="box has-background-white" style="border: 2px solid #00d1b2; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,209,178,0.1);">
+                  <p class="title is-6 has-text-dark has-text-weight-semibold mb-2" id="selected-service">Carregando...</p>
+                  <div class="columns is-mobile is-gapless">
+                    <div class="column">
+                      <p class="subtitle is-7 has-text-grey" id="service-duration">⏱️ Duração: Carregando...</p>
+                    </div>
+                    <div class="column">
+                      <p class="subtitle is-7 has-text-weight-medium" style="color: #00d1b2;" id="service-price">💰 Preço: Carregando...</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Total -->
+          <div class="box has-text-centered mb-5" style="background: linear-gradient(135deg, #00d1b2, #00c4a7); border-radius: 15px; color: white; box-shadow: 0 4px 12px rgba(0,209,178,0.3);">
+            <p class="subtitle is-5 mb-2" style="color: rgba(255,255,255,0.9);">Valor Total do Serviço</p>
+            <p class="title is-1 has-text-weight-bold" id="total-price" style="color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">R$ 0,00</p>
+          </div>
+          
+          <!-- Botões de Ação -->
+          <div class="has-text-centered mb-5">
+            <div class="buttons is-centered">
+              <button id="confirm-btn" class="button is-large has-text-weight-bold" style="background: linear-gradient(135deg, #48c774, #3ec46d); color: white; border: none; border-radius: 25px; padding: 12px 30px; box-shadow: 0 4px 12px rgba(72,199,116,0.3);">
+                <span class="icon">
+                  <span class="is-hidden" id="loading-spinner">🔄</span>
+                </span>
+                <span id="btn-text"> Confirmar Agendamento</span>
+              </button>
+              
+              <button id="edit-btn" class="button is-large has-text-weight-semibold" style="background: white; color: #4a4a4a; border: 2px solid #e8e8e8; border-radius: 25px; padding: 12px 30px;">
+                <span class="icon">
+                </span>
+                <span>Editar Agendamento</span>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Informações Adicionais -->
+          <div class="box has-background-light" style="border-radius: 12px; border: 1px solid #e0e0e0; background: linear-gradient(135deg, #f8f9fa, #e9ecef);">
+            <h4 class="title is-5 has-text-centered has-text-dark mb-4" style="color: #495057;">
+              Observação Importante
+            </h4>
+            <div class="content" style="font-size: 0.95em;">
+              <ul class="has-text-grey-darker" style="line-height: 1.6;">
+                <li style="margin-bottom: 8px;"> Chegue com 10 minutos de antecedência para evitar atrasos</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <footer id="footer-placeholder"></footer>
+
+    <script src="/public/js/layout.js"></script>
+    <script src="/public/js/hideHeroFoot.js"></script>
+    <script src="/public/js/showBreadcrumb.js"></script>
+    <script src="/public/js/confirm.js"></script>
+    <script>
+        setTimeout(() => hideHeroFoot(), 100);
+        setTimeout(() => showBreadcrumb(), 100);
+    </script>
+  </body>
+</html>
