@@ -5,7 +5,7 @@ CREATE TABLE servico (
   descricao TEXT,
   duracao TIME NOT NULL,
   preco DECIMAL(10,2) NOT NULL,
-  foto LONGBLOB,
+  foto MEDIUMBLOB,
   ativo TINYINT(1) DEFAULT 1,
   FOREIGN KEY (categoria_id) REFERENCES categoria(id)
 );

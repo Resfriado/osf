@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Report</title>
-    <link rel="icon" type="image/png" href="/public/images/logo.png">
+    <link rel="icon" type="image/png" href="/public/images/logo.png" />
     <script>
       window.paceOptions = {
         restartOnRequestAfter: false,
@@ -43,37 +43,47 @@
     <header id="header-placeholder"></header>
     <main class="section is-flex-grow-1">
       <div class="container">
-        <h1 class="title">Bulma</h1>
-        <p class="subtitle">
-          Modern CSS framework based on
-          <a
-            href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox"
-            >Flexbox</a
-          >
-        </p>
-        <div class="field">
-          <div class="control">
-            <input class="input" type="text" placeholder="Input" />
+        <div class="columns is-centered is-multiline">
+          <div class="column is-flex is-justify-content-center is-align-items-center is-narrow">
+            <div class="box p-0 m-0">
+              <article class="panel is-link m-0">
+                <p class="panel-heading has-text-centered py-2">Relatório de Serviços</p>
+              </article>
+              <a href="/files/manual.pdf" download>
+                <button class="button px-6 is-fullwidth">
+                  <span class="icon">
+                    <i class="fa-solid fa-download has-text-danger has-text-weight-bold"></i>
+                  </span>
+                  <p>Dowload<p>
+                </button>
+              </a>
+            </div>
           </div>
-        </div>
-        <div class="field">
-          <p class="control">
-            <span class="select">
-              <select>
-                <option>Select dropdown</option>
-              </select>
-            </span>
-          </p>
-        </div>
-        <div class="buttons">
-          <a class="button is-primary">Primary</a>
-          <a class="button is-link">Link</a>
+          <div class="column is-flex is-justify-content-center is-align-items-center is-narrow">
+            <div class="box p-0 m-0">
+              <article class="panel is-link m-0">
+                <p class="panel-heading has-text-centered py-2">Relatório de Usuários</p>
+              </article>
+              <a href="/files/manual.pdf" download>
+                <button class="button px-6 is-fullwidth">
+                  <span class="icon">
+                    <i class="fa-solid fa-download has-text-danger has-text-weight-bold"></i>
+                  </span>
+                  <p>Dowload<p>
+                </button>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </main>
-    
+
     <footer id="footer-placeholder"></footer>
 
     <script src="/public/js/layout.js"></script>
+    <script src="/public/js/hideHeroFoot.js"></script>
+    <script>
+      setTimeout(() => hideHeroFoot(), 100);
+    </script>
   </body>
 </html>

@@ -55,7 +55,6 @@
   
 
   // 🧩 Scripts globais
-  injectScript("/public/js/header.js");
   injectScript("/public/assets/sweetalert2/sweetalert2.min.js");
   injectScript("/public/assets/jcalendar.js/jcalendar.min.js");
 
